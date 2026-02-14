@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connect | X7do0 Academy</title>
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500&family=Outfit:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../assets/css/variables.css">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                        mono: ['Fira Code', 'monospace'],
+                    },
+                    colors: {
+                        academic: {
+                            bg: 'var(--bg-primary)',
+                            card: 'var(--bg-card)',
+                            primary: 'var(--text-primary)',
+                            secondary: 'var(--text-secondary)',
+                            accent: 'var(--accent-primary)',
+                            muted: 'var(--text-muted)',
+                            surface: 'var(--bg-card-hover)',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <script src="../assets/js/theme-manager.js"></script>
+</head>
+
+<body class="antialiased selection:bg-blue-200 selection:text-blue-900 min-h-screen flex flex-col" data-page="connect">
+
+    <!-- Background Elements -->
+    <div class="fixed inset-0 z-[-1] bg-grid-pattern opacity-60 pointer-events-none"></div>
+
+    <!-- Header -->
+    <!-- Header -->
+    <nav class="w-full py-6 px-4 navbar-sticky">
+        <div class="max-w-4xl mx-auto flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <a href="../index.html" class="flex items-center gap-3 group">
+                    <div
+                        class="w-8 h-8 rounded bg-blue-600 flex items-center justify-center text-white shadow-md group-hover:scale-105 transition-transform">
+                        <i class="fas fa-graduation-cap text-sm"></i>
+                    </div>
+                    <span
+                        class="font-bold text-lg tracking-tight text-academic-primary group-hover:text-blue-600 transition-colors">X7do0
+                        <span class="text-academic-accent">Academy</span></span>
+                </a>
+            </div>
+            <div class="flex items-center gap-6 text-sm font-medium text-academic-secondary">
+                <a href="../index.html" class="nav-link hover:text-academic-accent transition-colors"
+                    data-i18n="nav_home" data-nav-link="home">Home</a>
+                <a href="../courses/index.html" class="nav-link hover:text-academic-accent transition-colors"
+                    data-i18n="nav_courses" data-nav-link="courses">Courses</a>
+                <a href="./index.html" class="nav-link hover:text-academic-accent transition-colors"
+                    data-i18n="nav_connect" data-nav-link="connect">Connect</a>
+
+                <!-- Toggles -->
+                <div class="flex items-center gap-3 pl-6 border-l border-slate-200">
+                    <button id="theme-toggle" class="hover:text-academic-accent transition-colors"
+                        aria-label="Toggle Dark Mode">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    <button id="lang-toggle"
+                        class="hover:text-academic-accent transition-colors font-mono text-xs font-bold"
+                        aria-label="Toggle Language">
+                        <span>عربي</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="flex-grow flex flex-col items-center justify-center px-4 py-12 w-full max-w-4xl mx-auto">
+
+        <header class="mb-12 text-center">
+            <h1 class="text-3xl md:text-4xl font-bold text-academic-primary mb-4" data-i18n="connect_title">Get
+                in Touch</h1>
+            <p class="text-academic-secondary max-w-md mx-auto" data-i18n="connect_desc">
+                Questions, collaborations, or just want to say hi? Connect with me on these platforms.
+            </p>
+        </header>
+
+        <!-- Accounts Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-2xl">
+
+            <!-- Box 1: Telegram (Personal) -->
+            <a href="https://t.me/ctedev" target="_blank"
+                class="flex items-center gap-4 p-4 rounded-xl bg-academic-card border border-slate-200 shadow-sm hover:shadow-md hover:border-blue-400 transition-all group">
+                <div
+                    class="w-12 h-12 rounded-lg bg-academic-surface flex items-center justify-center text-blue-500 text-2xl group-hover:scale-110 transition-transform">
+                    <i class="fab fa-telegram-plane"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-academic-primary group-hover:text-blue-600 transition-colors">Telegram
+                    </h3>
+                    <p class="text-xs text-academic-secondary" data-i18n="desc_tg_personal">Personal Account</p>
+                </div>
+                <i class="fas fa-external-link-alt ml-auto text-academic-muted group-hover:text-blue-400"></i>
+            </a>
+
+            <!-- Box 2: Telegram Channel -->
+            <a href="https://t.me/x7do0eng" target="_blank"
+                class="flex items-center gap-4 p-4 rounded-xl bg-academic-card border border-slate-200 shadow-sm hover:shadow-md hover:border-blue-400 transition-all group">
+                <div
+                    class="w-12 h-12 rounded-lg bg-academic-surface flex items-center justify-center text-blue-500 text-2xl group-hover:scale-110 transition-transform">
+                    <i class="fab fa-telegram"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-academic-primary group-hover:text-blue-600 transition-colors">Telegram
+                        Channel</h3>
+                    <p class="text-xs text-academic-secondary" data-i18n="desc_tg_channel">Official Channel</p>
+                </div>
+                <i class="fas fa-external-link-alt ml-auto text-academic-muted group-hover:text-blue-400"></i>
+            </a>
+
+            <!-- Box 3: YouTube -->
+            <a href="http://www.youtube.com/@X7do0eng" target="_blank"
+                class="flex items-center gap-4 p-4 rounded-xl bg-academic-card border border-slate-200 shadow-sm hover:shadow-md hover:border-red-200 transition-all group">
+                <div
+                    class="w-12 h-12 rounded-lg bg-academic-surface flex items-center justify-center text-red-600 text-2xl group-hover:scale-110 transition-transform">
+                    <i class="fab fa-youtube"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-academic-primary group-hover:text-red-700 transition-colors">YouTube</h3>
+                    <p class="text-xs text-academic-secondary" data-i18n="desc_youtube">Video Tutorials & Courses</p>
+                </div>
+                <i class="fas fa-external-link-alt ml-auto text-academic-muted group-hover:text-red-400"></i>
+            </a>
+
+            <!-- Box 4: Instagram -->
+            <a href="https://instagram.com/x7do0" target="_blank"
+                class="flex items-center gap-4 p-4 rounded-xl bg-academic-card border border-slate-200 shadow-sm hover:shadow-md hover:border-pink-300 transition-all group">
+                <div
+                    class="w-12 h-12 rounded-lg bg-academic-surface flex items-center justify-center text-pink-600 text-2xl group-hover:scale-110 transition-transform">
+                    <i class="fab fa-instagram"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-academic-primary group-hover:text-pink-600 transition-colors">Instagram
+                    </h3>
+                    <p class="text-xs text-academic-secondary" data-i18n="desc_instagram">Personal Account</p>
+                </div>
+                <i class="fas fa-external-link-alt ml-auto text-academic-muted group-hover:text-pink-400"></i>
+            </a>
+
+        </div>
+
+    </main>
+
+    <footer
+        class="py-8 text-center text-academic-muted text-xs font-mono tracking-widest uppercase border-t border-slate-200 mt-auto">
+        <!-- Copyright Removed -->
+    </footer>
+
+    <!-- Theme & Language Logic -->
+    <!-- Script moved to head for anti-flash -->
+
+</body>
+
+</html>

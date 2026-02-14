@@ -1,0 +1,84 @@
+/* Semantic Color System */ 
+:root {
+    /* Light Theme (Default - Royal Academic) */
+    --bg-primary: #eef2f6;
+    /* Softer Blue-Gray */
+    --bg-card: #f8fafc;
+    /* Off-White (Slate-50) */
+    --bg-card-hover: #f1f5f9;
+    /* Slate-100 */
+
+    --text-primary: #0f172a;
+    /* Slate-900 */
+    --text-secondary: #475569;
+    /* Slate-600 */
+    --text-muted: #94a3b8;
+    /* Slate-400 */
+
+    --border-subtle: #e2e8f0;
+    /* Slate-200 */
+    --border-accent: #bfdbfe;
+    /* Blue-200 */
+
+    --accent-primary: #2563eb;
+    /* Blue-600 */
+    --accent-hover: #1d4ed8;
+    /* Blue-700 */
+    --accent-surface: #eff6ff;
+    /* Blue-50 */
+
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+
+    /* Python Notes Specifics */
+    --code-bg: #f8fafc;
+    --code-border: #cbd5e1;
+    --code-text: #334155;
+}
+
+[data-theme="dark"] {
+    /* Dark Theme (Deep Navy/Slate) */
+    --bg-primary: #0f172a;
+    /* Slate-900 */
+    --bg-card: #1e293b;
+    /* Slate-800 */
+    --bg-card-hover: #334155;
+    /* Slate-700 */
+
+    --text-primary: #f1f5f9;
+    /* Slate-100 */
+    --text-secondary: #cbd5e1;
+    /* Slate-300 */
+    --text-muted: #64748b;
+    /* Slate-500 */
+
+    --border-subtle: #334155;
+    /* Slate-700 */
+    --border-accent: #1e40af;
+    /* Blue-800 */
+
+    --accent-primary: #60a5fa;
+    /* Blue-400 (Ligher for dark bg) */
+    --accent-hover: #3b82f6;
+    /* Blue-500 */
+    --accent-surface: #172554;
+    /* Blue-950 */
+
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.3);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.5), 0 2px 4px -2px rgb(0 0 0 / 0.3);
+
+    /* Python Notes Specifics */
+    --code-bg: #1e293b;
+    --code-border: #475569;
+    --code-text: #e2e8f0;
+}
+
+/* Common Transition */
+body,
+.academic-card,
+.glass-card,
+.keyword,
+nav,
+footer {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}

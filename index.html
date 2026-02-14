@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>X7do0 Academy</title>
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500&family=Outfit:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./assets/css/variables.css">
+    <link rel="stylesheet" href="./assets/css/styles.css">
+
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                        mono: ['Fira Code', 'monospace'],
+                    },
+                    colors: {
+                        academic: {
+                            bg: 'var(--bg-primary)',
+                            card: 'var(--bg-card)',
+                            primary: 'var(--text-primary)',
+                            secondary: 'var(--text-secondary)',
+                            accent: 'var(--accent-primary)',
+                            muted: 'var(--text-muted)',
+                            surface: 'var(--bg-card-hover)',
+                        },
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
+                    },
+                    animation: {
+                        'float-slow': 'float 6s ease-in-out infinite',
+                        'float-delayed': 'float 5s ease-in-out 1s infinite',
+                    }
+                }
+            }
+        }
+    </script>
+    <script src="./assets/js/theme-manager.js"></script>
+</head>
+
+<body class="antialiased selection:bg-blue-200 selection:text-blue-900 min-h-screen flex flex-col" data-page="home">
+
+    <!-- Background Elements -->
+    <div class="fixed inset-0 z-[-1] bg-grid-pattern opacity-60 pointer-events-none"></div>
+
+    <!-- Header -->
+    <nav class="w-full py-6 px-4 navbar-sticky">
+        <div class="max-w-4xl mx-auto flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <a href="./index.html" class="flex items-center gap-3 group">
+                    <div
+                        class="w-8 h-8 rounded bg-blue-600 flex items-center justify-center text-white shadow-md group-hover:scale-105 transition-transform">
+                        <i class="fas fa-graduation-cap text-sm"></i>
+                    </div>
+                    <span
+                        class="font-bold text-lg tracking-tight text-academic-primary group-hover:text-blue-600 transition-colors">X7do0
+                        <span class="text-academic-accent">Academy</span></span>
+                </a>
+            </div>
+            <div class="flex items-center gap-6 text-sm font-medium text-academic-secondary">
+                <a href="./index.html" class="nav-link hover:text-academic-accent transition-colors"
+                    data-i18n="nav_home" data-nav-link="home">Home</a>
+                <a href="./courses/index.html" class="nav-link hover:text-academic-accent transition-colors"
+                    data-i18n="nav_courses" data-nav-link="courses">Courses</a>
+                <a href="./accounts/index.html" class="nav-link hover:text-academic-accent transition-colors"
+                    data-i18n="nav_connect" data-nav-link="connect">Connect</a>
+
+                <!-- Toggles -->
+                <div class="flex items-center gap-3 pl-6 border-l border-slate-200">
+                    <button id="theme-toggle" class="hover:text-academic-accent transition-colors"
+                        aria-label="Toggle Dark Mode">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    <button id="lang-toggle"
+                        class="hover:text-academic-accent transition-colors font-mono text-xs font-bold"
+                        aria-label="Toggle Language">
+                        <span>عربي</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="flex-grow flex flex-col items-center justify-center px-4 py-12 text-center max-w-4xl mx-auto">
+
+        <div class="space-y-6 max-w-2xl animate-fade-in opacity-0" style="animation: fadeIn 0.8s ease-out forwards;">
+            <div
+                class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-academic-bg border border-blue-100 text-academic-accent text-xs font-bold tracking-widest uppercase mb-4">
+                <span class="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></span>
+                <span data-i18n="welcome_label">Welcome</span>
+            </div>
+
+            <h1 class="text-4xl md:text-5xl font-bold text-academic-primary tracking-tight leading-tight"
+                data-i18n="hero_title">
+                Master Complexity with <br />
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-400">Calm
+                    Precision</span>
+            </h1>
+
+            <p class="text-lg text-academic-secondary leading-relaxed max-w-lg mx-auto" data-i18n="hero_desc">
+                An educational philosophy built on minimalism, depth, and clarity.
+                Focusing on the fundamental concepts that drive modern software engineering.
+            </p>
+
+            <div class="pt-8 flex justify-center gap-4">
+                <a href="./courses/index.html"
+                    class="group relative px-6 py-3 bg-academic-accent text-white font-semibold rounded-lg shadow-lg shadow-blue-500/20 hover:bg-blue-700 hover:translate-y-[-2px] transition-all duration-300 overflow-hidden">
+                    <span class="relative z-10 flex items-center gap-2">
+                        <span data-i18n="cta_start">Start Learning</span> <i
+                            class="fas fa-arrow-right group-hover:translate-x-1 transition-transform rtl:rotate-180"></i>
+                    </span>
+                    <div
+                        class="absolute inset-0 bg-gradient-to-r from-blue-500 to-blue-700 opacity-0 group-hover:opacity-100 transition-opacity">
+                    </div>
+                </a>
+                <a href="./accounts/index.html"
+                    class="px-6 py-3 bg-academic-card text-academic-secondary font-semibold rounded-lg border border-slate-200 dark:border-slate-700 hover:border-blue-200 hover:text-academic-accent hover:bg-academic-bg transition-all duration-300"
+                    data-i18n="cta_contact">
+                    Get in Touch
+                </a>
+            </div>
+
+            <!-- Orbital Navigation (Desktop) -->
+            <div class="hidden md:block relative w-full h-[320px] mt-16 animate-fade-in opacity-0"
+                style="animation: fadeIn 1s ease-out 0.5s forwards;">
+                <!-- Decor: Orbits -->
+                <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                    <div
+                        class="w-[280px] h-[280px] rounded-full border border-slate-200 dark:border-slate-800 opacity-60">
+                    </div>
+                    <div
+                        class="w-[480px] h-[480px] absolute rounded-full border border-slate-100 dark:border-slate-900 opacity-40 border-dashed">
+                    </div>
+                </div>
+
+                <!-- Center: Academy Node -->
+                <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
+                    <div
+                        class="w-24 h-24 rounded-full bg-academic-card shadow-2xl border-4 border-white dark:border-slate-800 flex items-center justify-center text-academic-primary text-3xl relative transition-all duration-300 hover:scale-105 hover:shadow-blue-500/20 hover:border-blue-100 dark:hover:border-blue-900 group">
+                        <i class="fas fa-graduation-cap group-hover:rotate-12 transition-transform duration-300"></i>
+                        <div
+                            class="absolute -bottom-8 text-xs font-bold uppercase tracking-widest text-academic-muted whitespace-nowrap group-hover:text-blue-500 transition-colors">
+                            Academy Hub</div>
+                    </div>
+                </div>
+
+                <!-- Python Node (Right/Active) -->
+                <div
+                    class="absolute top-1/2 left-1/2 transform translate-x-[80px] -translate-y-1/2 z-0 hover:z-20 transition-all duration-300">
+                    <div class="course-float delayed">
+                        <a href="./courses/python/index.html" class="course-card group relative block">
+                            <div
+                                class="flex items-center gap-4 bg-academic-card p-4 pr-6 rounded-xl shadow-lg border border-blue-100 dark:border-blue-900 w-60 relative overflow-hidden transition-all group-hover:border-blue-300 dark:group-hover:border-blue-700">
+                                <div class="absolute left-0 top-0 bottom-0 w-1 bg-blue-500"></div>
+                                <div
+                                    class="w-10 h-10 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center text-xl shadow-inner">
+                                    <i class="fab fa-python"></i>
+                                </div>
+                                <div class="text-left">
+                                    <h3 class="font-bold text-academic-primary text-sm" data-i18n="course_python_title">
+                                        Python
+                                        Core
+                                    </h3>
+                                    <span
+                                        class="text-[10px] text-green-600 font-bold uppercase tracking-wider bg-green-50 px-2 py-0.5 rounded border border-green-100"
+                                        data-i18n="active_badge">Active</span>
+                                </div>
+                                <!-- Arrow -->
+                                <div class="absolute right-3 text-blue-200 group-hover:text-blue-500 transition-colors">
+                                    <i class="fas fa-chevron-right rtl:rotate-180"></i>
+                                </div>
+                            </div>
+                            <!-- Connector Line (Visual only) -->
+                            <div
+                                class="absolute right-full top-1/2 w-[32px] h-[2px] bg-blue-200 dark:bg-blue-900 -z-10 origin-right transition-colors group-hover:bg-blue-400">
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- C++ Node (Left/Bottom/Planned) -->
+                <div
+                    class="absolute top-1/2 left-1/2 transform -translate-x-[300px] translate-y-[40px] z-0 pointer-events-none opacity-60 grayscale">
+                    <div class="course-float">
+                        <div
+                            class="course-card flex items-center gap-4 bg-academic-card p-3 pr-5 rounded-xl shadow border border-slate-200 dark:border-slate-800 w-52 relative">
+                            <!-- Connector Line (Visual only) -->
+                            <div
+                                class="absolute left-full top-1/2 w-[80px] h-[1px] bg-slate-200 dark:bg-slate-800 -z-10 origin-left rotate-[-15deg]">
+                            </div>
+                            <div
+                                class="w-8 h-8 rounded-lg bg-slate-100 text-slate-500 flex items-center justify-center text-lg">
+                                <i class="fas fa-code"></i>
+                            </div>
+                            <div class="text-left">
+                                <h3 class="font-bold text-academic-secondary text-xs" data-i18n="course_cpp_title">C++
+                                    Systems
+                                </h3>
+                                <span
+                                    class="text-[9px] text-slate-500 font-bold uppercase tracking-wider border border-slate-200 px-1.5 py-0.5 rounded"
+                                    data-i18n="planned_badge">Planned</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mobile Stack (Fallback) -->
+            <div class="md:hidden mt-12 w-full max-w-sm mx-auto space-y-3 animate-fade-in opacity-0"
+                style="animation: fadeIn 1s ease-out 0.5s forwards;">
+                <a href="./courses/python/index.html"
+                    class="flex items-center gap-4 bg-academic-card p-4 rounded-xl shadow-md border border-blue-100 dark:border-blue-900 hover:border-blue-300 transition-colors">
+                    <div class="w-10 h-10 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center text-xl">
+                        <i class="fab fa-python"></i>
+                    </div>
+                    <div class="text-left flex-grow">
+                        <div class="flex justify-between items-center">
+                            <h3 class="font-bold text-academic-primary text-sm" data-i18n="course_python_title">Python
+                                Core
+                            </h3>
+                            <i class="fas fa-arrow-right text-blue-300 text-xs rtl:rotate-180"></i>
+                        </div>
+                        <span
+                            class="text-[10px] text-green-600 font-bold uppercase tracking-wider bg-green-50 px-2 py-0.5 rounded"
+                            data-i18n="active_badge">Active</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <!-- Features Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-20 w-full animate-fade-in opacity-0"
+            style="animation: fadeIn 0.8s ease-out 0.2s forwards;">
+            <div
+                class="p-6 rounded-xl bg-academic-card border border-slate-100 shadow-sm hover:shadow-md transition-shadow text-left">
+                <div
+                    class="w-10 h-10 rounded-lg bg-academic-surface flex items-center justify-center text-academic-accent mb-4">
+                    <i class="fas fa-cube"></i>
+                </div>
+                <h3 class="font-bold text-academic-primary mb-2" data-i18n="feat_struct_title">Structured
+                    Learning</h3>
+                <p class="text-sm text-academic-secondary leading-relaxed" data-i18n="feat_struct_desc">
+                    Curated paths designed to build knowledge layer by
+                    layer.</p>
+            </div>
+            <div
+                class="p-6 rounded-xl bg-academic-card border border-slate-100 shadow-sm hover:shadow-md transition-shadow text-left">
+                <div
+                    class="w-10 h-10 rounded-lg bg-academic-surface flex items-center justify-center text-academic-accent mb-4">
+                    <i class="fas fa-code"></i>
+                </div>
+                <h3 class="font-bold text-academic-primary mb-2" data-i18n="feat_code_title">Practical Code
+                </h3>
+                <p class="text-sm text-academic-secondary leading-relaxed" data-i18n="feat_code_desc">
+                    Real-world examples and interactive challenges.</p>
+            </div>
+            <div
+                class="p-6 rounded-xl bg-academic-card border border-slate-100 shadow-sm hover:shadow-md transition-shadow text-left">
+                <div
+                    class="w-10 h-10 rounded-lg bg-academic-surface flex items-center justify-center text-academic-accent mb-4">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <h3 class="font-bold text-academic-primary mb-2" data-i18n="feat_deep_title">Deep Fundamentals
+                </h3>
+                <p class="text-sm text-academic-secondary leading-relaxed" data-i18n="feat_deep_desc">
+                    Understanding the 'Why' behind the syntax.</p>
+            </div>
+        </div>
+
+        <!-- Instructor / About Section -->
+        <div class="mt-24 animate-fade-in opacity-0" style="animation: fadeIn 0.8s ease-out 0.4s forwards;">
+            <div class="inline-block p-1 rounded-full bg-gradient-to-r from-blue-500 to-blue-600 mb-6">
+                <div
+                    class="w-16 h-16 rounded-full bg-academic-card flex items-center justify-center border-4 border-white dark:border-slate-800">
+                    <span class="font-bold text-xl text-academic-primary">X7</span>
+                </div>
+            </div>
+            <h2 class="text-2xl font-bold text-academic-primary mb-4" data-i18n="instructor_title">The Instructor</h2>
+            <p class="text-academic-secondary max-w-lg mx-auto leading-relaxed mb-6" data-i18n="instructor_bio">
+                Engineer & Educator. Building X7do0 Academy to bridge the gap between academic theory and practical
+                engineering.
+            </p>
+            <a href="./accounts/index.html" class="text-academic-accent text-sm font-bold hover:underline"
+                data-i18n="instructor_link">
+                More about me &rarr;
+            </a>
+        </div>
+
+    </main>
+
+    <footer class="py-8 text-center text-academic-muted text-xs font-mono tracking-widest uppercase">
+        <!-- Copyright Removed -->
+    </footer>
+
+    <!-- Theme & Language Logic -->
+    <!-- Script moved to head for anti-flash -->
+
+    <script>
+        // Simple One-off Animation styles injected here since we are sticking to "No Build Step"
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fadeIn {
+                from { opacity: 0; transform: translateY(20px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,259 @@
+/* Global Styles & Overrides */
+body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    /* Slate-900 for primary text */
+    overflow-x: hidden;
+}
+
+/* Subtle Grid Pattern - Blue Tint */
+.bg-grid-pattern {
+    background-image:
+        linear-gradient(to right, rgba(59, 130, 246, 0.05) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(59, 130, 246, 0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+    mask-image: radial-gradient(circle at center, black 60%, transparent 100%);
+}
+
+/* Academic Card Style */
+.academic-card {
+    background: var(--bg-card);
+    border-radius: 12px;
+    border: 1px solid var(--border-subtle);
+    /* Top border for academic emphasis */
+    border-top: 4px solid var(--accent-primary);
+    /* Blue-600 */
+    box-shadow: var(--shadow-sm);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.academic-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--border-accent);
+    /* Blue-300 */
+    border-top-color: var(--accent-hover);
+    /* Blue-700 */
+}
+
+/* Replaces .glass-card for backward compatibility during refactor */
+.glass-card {
+    background: var(--bg-card);
+    border-radius: 12px;
+    border: 1px solid var(--border-subtle);
+    box-shadow: var(--shadow-sm);
+    transition: all 0.3s ease;
+}
+
+.glass-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08);
+    border-color: #cbd5e1;
+}
+
+.keyword {
+    position: relative;
+    overflow: hidden;
+    background-color: var(--code-bg);
+    /* Slate-50 */
+    color: var(--code-text);
+    /* Slate-700 */
+    border: 1px solid var(--code-border);
+    /* Slate-300 */
+    transition: all 0.2s;
+    font-weight: 600;
+    /* Increased weight */
+}
+
+.keyword:hover {
+    background-color: var(--accent-surface);
+    /* Blue-50 */
+    color: var(--accent-hover);
+    /* Blue-800 */
+    border-color: var(--accent-primary);
+    /* Blue-400 */
+    box-shadow: var(--shadow-sm);
+}
+
+/* Custom Scrollbar - Blue Tint */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--text-muted);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-primary);
+    /* Blue-500 */
+}
+
+.arabic-text {
+    direction: rtl;
+    font-family: 'Noto Sans Arabic', sans-serif;
+    color: var(--text-secondary);
+    /* Slate-600 */
+}
+
+.collapsible-content {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.collapsible-content.expanded {
+    max-height: 500px;
+    opacity: 1;
+    margin-top: 1rem;
+}
+
+.toggle-btn[aria-expanded="true"] .toggle-icon {
+    transform: rotate(180deg);
+}
+
+/* --- Hero Visual Animations (Wrapper Strategy) --- */
+
+@keyframes floatY {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-6px);
+    }
+}
+
+.course-float {
+    animation: floatY 6s ease-in-out infinite;
+    /* Ensure layout stability */
+    width: 100%;
+    height: 100%;
+}
+
+/* Specific delay for variety */
+.course-float.delayed {
+    animation-delay: 1.5s;
+    animation-duration: 5s;
+}
+
+/* Hover pauses the floating wrapper only 
+   Rule 5: "animation must NOT stop on hover" - Rule kept for documentation if needed later
+*/
+
+/* Hover effects on the inner card */
+.course-card {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    /* Ensure it fills wrapper if needed or acts as block */
+    display: block;
+}
+
+.course-card:hover {
+    transform: scale(1.02);
+    border-color: var(--accent-primary);
+    box-shadow: 0 10px 25px -5px rgba(59, 130, 246, 0.15);
+    /* Soft blue shadow */
+}
+
+/* Academy Hub Specific Hover */
+div.w-24.h-24.rounded-full.bg-academic-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
+    /* Blue glow */
+    border-color: var(--accent-primary);
+    transition: all 0.3s ease;
+}
+
+div.w-24.h-24.rounded-full.bg-academic-card:hover i {
+    transform: rotate(12deg);
+    transition: transform 0.3s ease;
+}
+
+/* --- Sticky Navigation --- */
+.navbar-sticky {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background-color: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border-subtle);
+    transition: all 0.3s ease;
+}
+
+[data-theme="dark"] .navbar-sticky {
+    background-color: rgba(15, 23, 42, 0.8);
+}
+
+.nav-link {
+    position: relative;
+    color: var(--text-secondary);
+    transition: color 0.2s ease;
+}
+
+.nav-link:hover {
+    color: var(--accent-primary);
+}
+
+.nav-link-active {
+    color: var(--accent-primary) !important;
+    font-weight: 600;
+}
+
+.nav-link-active::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--accent-primary);
+    border-radius: 2px;
+}
+
+/* --- Visual Hierarchy Refinements --- */
+.section-spacing {
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+@media (min-width: 768px) {
+    .section-spacing {
+        padding-top: 120px;
+        padding-bottom: 120px;
+    }
+}
+
+.section-divider {
+    height: 1px;
+    max-width: 900px;
+    margin: 0 auto;
+    background: linear-gradient(to right, transparent, rgba(59, 130, 246, 0.25), transparent);
+}
+
+.bg-depth-subtle {
+    background-color: var(--bg-card);
+    border-radius: 1.5rem;
+    /* Soft rounding */
+    padding: 3rem 2rem;
+    /* Internal spacing for the background */
+    margin-left: -1rem;
+    /* Visual optical alignment */
+    margin-right: -1rem;
+}
+
+@media (min-width: 768px) {
+    .bg-depth-subtle {
+        padding: 4rem;
+        margin-left: -2rem;
+        margin-right: -2rem;
+    }
+}

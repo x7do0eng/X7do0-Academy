@@ -1,0 +1,13 @@
+# Windows system files
+Thumbs.db
+Desktop.ini
+
+# Local scripts (do not upload)
+update.bat
+
+# Temporary files
+*.log
+*.tmp
+
+# VS Code (optional)
+.vscode/

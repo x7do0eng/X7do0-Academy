@@ -13,13 +13,7 @@
     Final Score: score
 =========================
 '''
-score = 20
-score += 10
-score *= 2
-score -= 5
-score /= 5
 
-print("Final Score:", score)
 
 #*--------------------------------
 

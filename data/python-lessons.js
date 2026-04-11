@@ -14,7 +14,7 @@
                 type: "compound",
                 label: "Multiple Values",
                 code: 'name="Ali"\\nprint("Hi " + name)\\nprint(f"Hi {name}")\\nprint("Hi", name)',
-                note: { text: "ظٹط¬ط¨ ط£ظ† طھظƒظˆظ† ط§ظ„ظ‚ظٹظ… ظ…ظ† ظ†ظپط³ ط§ظ„ظ†ظˆط¹ ط¹ظ†ط¯ ط§ط³طھط®ط¯ط§ظ… +", color: "blue" }
+                note: { text: "يجب أن تكون القيم من نفس النوع عند استخدام +", color: "blue" }
             }
         ],
         files: {
@@ -35,7 +35,7 @@
             { type: "keyword", label: "Dictionary { }", code: 'user = {"id": 1, "name": "Ali"}' },
             { type: "keyword", label: "Tuple ( )", code: 'point = (10, 20)\\n# point[0] = 5  (Error!)' }
         ],
-        extraInfo: { text: "ط¨ط§ظٹط«ظˆظ† ظ„ط؛ط© ط¯ظٹظ†ط§ظ…ظٹظƒظٹط©ط› ظٹطھظ… طھط­ط¯ظٹط¯ ط§ظ„ظ†ظˆط¹ طھظ„ظ‚ط§ط¦ظٹط§ظ‹.", icon: "fas fa-info-circle", color: "blue" },
+        extraInfo: { text: "بايثون لغة ديناميكية؛ يتم تحديد النوع تلقائياً.", icon: "fas fa-info-circle", color: "blue" },
         files: {
             subject: "../../files/python/lesson-02/subject2.py",
             challenge: "../../files/python/lesson-02/challenge2.py"
@@ -69,7 +69,7 @@
         color: "blue",
         items: [
             { type: "keyword", label: "Input Method", code: 'name = input("Enter name: ")', style: "block", padding: "py-3" },
-            { type: "alert", text: "* ظٹطھظ… ط¯ط§ط¦ظ…ط§ظ‹ ط­ظپط¸ ط§ظ„ظ…ط¯ط®ظ„ط§طھ ظƒظ†طµ (String).", color: "amber", icon: "fas fa-exclamation-triangle" }
+            { type: "alert", text: "* يتم دائماً حفظ المدخلات كنص (String).", color: "amber", icon: "fas fa-exclamation-triangle" }
         ],
         files: {
             subject: "../../files/python/lesson-04/subject4.py",
@@ -93,7 +93,7 @@
             },
             { type: "keyword", label: "type(x)", code: 'x = 5\\nprint(type(x))' },
             { type: "keyword", label: "len()", code: 'text = "Hello"\\nprint(len(text)) # 5' },
-            { type: "alert", text: "* ظ„ط§ ظٹظ…ظƒظ† طھط­ظˆظٹظ„ ظ†طµ ط£ط¨ط¬ط¯ظٹ ط¥ظ„ظ‰ ط±ظ‚ظ… (ValueError).", color: "red", style: "simple" }
+            { type: "alert", text: "* لا يمكن تحويل نص أبجدي إلى رقم (ValueError).", color: "red", style: "simple" }
         ],
         files: {
             subject: "../../files/python/lesson-05/subject5.py",
@@ -106,7 +106,7 @@
         icon: "fas fa-code-branch",
         color: "blue",
         items: [
-            { type: "text", text: "ط¯ظ…ط¬ ط§ظ„ط¯ظˆط§ظ„ (Function Nesting)", icon: "bar", color: "slate" },
+            { type: "text", text: "دمج الدوال (Function Nesting)", icon: "bar", color: "slate" },
             {
                 type: "container",
                 items: [
@@ -147,12 +147,12 @@
         layout: "grid-column",
         columns: [
             [
-                { type: "code-box", label: "For Range (100)", code: 'for i in range(101):\\n    print(i)', note: "ط¨ط¯ط§ظٹط©: 0طŒ ظ†ظ‡ط§ظٹط©: 100 (101 ط؛ظٹط± ط´ط§ظ…ظ„)", style: "simple" },
-                { type: "code-box", label: "For Range (1 to 100)", code: 'for i in range(1, 101):\\n    print(i)', note: "ط¨ط¯ط§ظٹط©: 1طŒ ظ†ظ‡ط§ظٹط©: 100 (101 ط؛ظٹط± ط´ط§ظ…ظ„)", style: "simple" },
-                { type: "code-box", label: "For Range (1 to 100, by step)", code: 'for i in range(1, 101, 2):\\n    print(i)', note: "ط¨ط¯ط§ظٹط©: 1طŒ ظ†ظ‡ط§ظٹط©: طŒ100طŒ ظ…ط¹ طھط­ط¯ظٹط¯ ط®ط·ظˆط© (101 ط؛ظٹط± ط´ط§ظ…ظ„)", style: "simple" }
+                { type: "code-box", label: "For Range (100)", code: 'for i in range(101):\\n    print(i)', note: "بداية: 0، نهاية: 100 (101 غير شامل)", style: "simple" },
+                { type: "code-box", label: "For Range (1 to 100)", code: 'for i in range(1, 101):\\n    print(i)', note: "بداية: 1، نهاية: 100 (101 غير شامل)", style: "simple" },
+                { type: "code-box", label: "For Range (1 to 100, by step)", code: 'for i in range(1, 101, 2):\\n    print(i)', note: "بداية: 1، نهاية: 100، مع تحديد خطوة (101 غير شامل)", style: "simple" }
             ],
             [
-                { type: "code-box", label: "For Iterable", code: 'items = [10, 20, 30]\\nfor x in items:\\n    print(x)', note: "ظٹط¬ط¨ ط£ظ† ظٹظƒظˆظ† ط§ظ„ظ…طھط؛ظٹط± <b>Iterable</b> (ظ…ط«ظ„ List ط£ظˆ String).", style: "simple" },
+                { type: "code-box", label: "For Iterable", code: 'items = [10, 20, 30]\\nfor x in items:\\n    print(x)', note: "يجب أن يكون المتغير Iterable (مثل List أو String).", style: "simple" },
                 { type: "code-box", label: "While Loop", code: 'count = 0\\nwhile count < 5:\\n    print(count)\\n    count += 1', color: "green", style: "simple" },
                 {
                     type: "group", layout: "flex", items: [

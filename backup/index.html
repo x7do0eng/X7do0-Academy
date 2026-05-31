@@ -95,8 +95,8 @@
                 <a href="./accounts/index.html" class="nav-link hover:text-academic-accent transition-colors"
                     data-i18n="nav_connect" data-nav-link="connect">Connect</a>
 
-                <!-- Toggles - Fixed RTL border and spacing with logical border-s -->
-                <div class="flex items-center gap-3 ps-6 border-s border-slate-200 dark:border-slate-800">
+                <!-- Toggles -->
+                <div class="flex items-center gap-3 pl-6 border-l border-slate-200">
                     <button id="theme-toggle" class="hover:text-academic-accent transition-colors"
                         aria-label="Toggle Dark Mode">
                         <i class="fas fa-moon"></i>
@@ -115,9 +115,8 @@
     <main class="flex-grow flex flex-col items-center justify-center px-4 py-12 text-center max-w-4xl mx-auto">
 
         <div class="space-y-6 max-w-2xl animate-fade-in opacity-0" style="animation: fadeIn 0.8s ease-out forwards;">
-            <!-- Fixed active border flash in dark mode -->
             <div
-                class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-academic-bg border border-blue-100 dark:border-blue-900/60 text-academic-accent text-xs font-bold tracking-widest uppercase mb-4">
+                class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-academic-bg border border-blue-100 text-academic-accent text-xs font-bold tracking-widest uppercase mb-4">
                 <span class="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></span>
                 <span data-i18n="welcome_label">Welcome</span>
             </div>
@@ -158,10 +157,10 @@
                 <!-- Decor: Orbits -->
                 <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
                     <div
-                        class="w-[280px] h-[280px] rounded-full border border-slate-200/70 dark:border-slate-800 opacity-60">
+                        class="w-[280px] h-[280px] rounded-full border border-slate-200 dark:border-slate-800 opacity-60">
                     </div>
                     <div
-                        class="w-[480px] h-[480px] absolute rounded-full border border-slate-200/50 dark:border-slate-900 opacity-40 border-dashed">
+                        class="w-[480px] h-[480px] absolute rounded-full border border-slate-100 dark:border-slate-900 opacity-40 border-dashed">
                     </div>
                 </div>
 
@@ -185,10 +184,10 @@
                                 class="flex items-center gap-4 bg-academic-card p-4 pr-6 rounded-xl shadow-lg border border-blue-100 dark:border-blue-900 w-60 relative overflow-hidden transition-all group-hover:border-blue-300 dark:group-hover:border-blue-700">
                                 <div class="absolute left-0 top-0 bottom-0 w-1 bg-blue-500"></div>
                                 <div
-                                    class="w-10 h-10 rounded-lg bg-blue-50/80 text-blue-600 flex items-center justify-center text-xl shadow-inner">
+                                    class="w-10 h-10 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center text-xl shadow-inner">
                                     <i class="fab fa-python"></i>
                                 </div>
-                                <div class="text-left font-sans">
+                                <div class="text-left">
                                     <h3 class="font-bold text-academic-primary text-sm" data-i18n="course_python_title">
                                         Python
                                         Core
@@ -224,7 +223,7 @@
                                 class="w-8 h-8 rounded-lg bg-slate-100 text-slate-500 flex items-center justify-center text-lg">
                                 <i class="fas fa-code"></i>
                             </div>
-                            <div class="text-left font-sans">
+                            <div class="text-left">
                                 <h3 class="font-bold text-academic-secondary text-xs" data-i18n="course_cpp_title">C++
                                     Systems
                                 </h3>
@@ -241,11 +240,11 @@
             <div class="md:hidden mt-12 w-full max-w-sm mx-auto space-y-3 animate-fade-in opacity-0"
                 style="animation: fadeIn 1s ease-out 0.5s forwards;">
                 <a href="./courses/python/index.html"
-                    class="flex items-center gap-4 bg-academic-card p-4 rounded-xl shadow-md border border-blue-100/80 dark:border-blue-900 hover:border-blue-300 transition-colors">
-                    <div class="w-10 h-10 rounded-lg bg-blue-50/80 text-blue-600 flex items-center justify-center text-xl">
+                    class="flex items-center gap-4 bg-academic-card p-4 rounded-xl shadow-md border border-blue-100 dark:border-blue-900 hover:border-blue-300 transition-colors">
+                    <div class="w-10 h-10 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center text-xl">
                         <i class="fab fa-python"></i>
                     </div>
-                    <div class="text-left flex-grow font-sans">
+                    <div class="text-left flex-grow">
                         <div class="flex justify-between items-center">
                             <h3 class="font-bold text-academic-primary text-sm" data-i18n="course_python_title">Python
                                 Core
@@ -260,11 +259,11 @@
             </div>
         </div>
 
-        <!-- Features Grid - Fixed dark-theme borders and logical text direction alignment -->
+        <!-- Features Grid -->
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-20 w-full animate-fade-in opacity-0"
             style="animation: fadeIn 0.8s ease-out 0.2s forwards;">
             <div
-                class="p-6 rounded-xl bg-academic-card border border-slate-200/70 dark:border-slate-800/80 shadow-sm hover:shadow-md transition-shadow text-start">
+                class="p-6 rounded-xl bg-academic-card border border-slate-100 shadow-sm hover:shadow-md transition-shadow text-left">
                 <div
                     class="w-10 h-10 rounded-lg bg-academic-surface flex items-center justify-center text-academic-accent mb-4">
                     <i class="fas fa-cube"></i>
@@ -276,7 +275,7 @@
                     layer.</p>
             </div>
             <div
-                class="p-6 rounded-xl bg-academic-card border border-slate-200/70 dark:border-slate-800/80 shadow-sm hover:shadow-md transition-shadow text-start">
+                class="p-6 rounded-xl bg-academic-card border border-slate-100 shadow-sm hover:shadow-md transition-shadow text-left">
                 <div
                     class="w-10 h-10 rounded-lg bg-academic-surface flex items-center justify-center text-academic-accent mb-4">
                     <i class="fas fa-code"></i>
@@ -287,7 +286,7 @@
                     Real-world examples and interactive challenges.</p>
             </div>
             <div
-                class="p-6 rounded-xl bg-academic-card border border-slate-200/70 dark:border-slate-800/80 shadow-sm hover:shadow-md transition-shadow text-start">
+                class="p-6 rounded-xl bg-academic-card border border-slate-100 shadow-sm hover:shadow-md transition-shadow text-left">
                 <div
                     class="w-10 h-10 rounded-lg bg-academic-surface flex items-center justify-center text-academic-accent mb-4">
                     <i class="fas fa-graduation-cap"></i>
@@ -304,7 +303,7 @@
             <div class="inline-block p-1 rounded-full bg-gradient-to-r from-blue-500 to-blue-600 mb-6">
                 <div
                     class="w-16 h-16 rounded-full bg-academic-card flex items-center justify-center border-4 border-white dark:border-slate-800">
-                    <span class="font-bold text-xl text-academic-primary font-sans">X7</span>
+                    <span class="font-bold text-xl text-academic-primary">X7</span>
                 </div>
             </div>
             <h2 class="text-2xl font-bold text-academic-primary mb-4" data-i18n="instructor_title">The Instructor</h2>
@@ -324,7 +323,11 @@
         <!-- Copyright Removed -->
     </footer>
 
+    <!-- Theme & Language Logic -->
+    <!-- Script moved to head for anti-flash -->
+
     <script>
+        // Simple One-off Animation styles injected here since we are sticking to "No Build Step"
         const style = document.createElement('style');
         style.textContent = `
             @keyframes fadeIn {

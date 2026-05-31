@@ -52,6 +52,7 @@
     <div class="fixed inset-0 z-[-1] bg-grid-pattern opacity-60 pointer-events-none"></div>
 
     <!-- Header -->
+    <!-- Header -->
     <nav class="w-full py-6 px-4 navbar-sticky">
         <div class="max-w-4xl mx-auto flex justify-between items-center">
             <div class="flex items-center gap-3">
@@ -73,8 +74,8 @@
                 <a href="../accounts/index.html" class="nav-link hover:text-academic-accent transition-colors"
                     data-i18n="nav_connect" data-nav-link="connect">Connect</a>
 
-                <!-- Toggles - Fixed RTL divider with logical border-s -->
-                <div class="flex items-center gap-3 ps-6 border-s border-slate-200 dark:border-slate-800">
+                <!-- Toggles -->
+                <div class="flex items-center gap-3 pl-6 border-l border-slate-200">
                     <button id="theme-toggle" class="hover:text-academic-accent transition-colors"
                         aria-label="Toggle Dark Mode">
                         <i class="fas fa-moon"></i>
@@ -103,9 +104,9 @@
         <!-- Courses Grid -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
-            <!-- Python Course (Active) - Fixed dark border issues -->
+            <!-- Python Course (Active) -->
             <a href="./python/index.html"
-                class="group relative block bg-academic-card rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-xl hover:border-blue-300 dark:hover:border-blue-500 transition-all duration-300 overflow-hidden transform hover:-translate-y-1">
+                class="group relative block bg-academic-card rounded-xl border border-slate-200 shadow-sm hover:shadow-xl hover:border-blue-300 transition-all duration-300 overflow-hidden transform hover:-translate-y-1">
                 <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-600 via-blue-400 to-blue-600">
                 </div>
                 <div class="p-6">
@@ -114,9 +115,8 @@
                             class="w-12 h-12 rounded-lg bg-academic-surface flex items-center justify-center text-academic-accent text-2xl group-hover:bg-academic-accent group-hover:text-white transition-colors duration-300">
                             <i class="fab fa-python"></i>
                         </div>
-                        <!-- Fixed Active Badge bright contrast in dark mode -->
                         <span
-                            class="px-2 py-1 rounded bg-green-50 dark:bg-green-950/40 text-green-700 dark:text-green-400 text-[10px] font-bold uppercase tracking-wider border border-green-100 dark:border-green-900/40"
+                            class="px-2 py-1 rounded bg-green-50 text-green-700 text-[10px] font-bold uppercase tracking-wider border border-green-100"
                             data-i18n="active_badge">Active</span>
                     </div>
 
@@ -137,22 +137,22 @@
                 </div>
                 <!-- Hover Effect Overlay -->
                 <div
-                    class="absolute inset-0 bg-blue-50 dark:bg-blue-950 opacity-0 group-hover:opacity-10 pointer-events-none transition-opacity">
+                    class="absolute inset-0 bg-blue-50 opacity-0 group-hover:opacity-10 pointer-events-none transition-opacity">
                 </div>
             </a>
 
-            <!-- C++ Course (Coming Soon) - Fixed dark border issues -->
+            <!-- C++ Course (Coming Soon) -->
             <div
-                class="relative block bg-academic-bg rounded-xl border border-slate-200 dark:border-slate-800 opacity-70 grayscale transition-all hover:opacity-100 hover:grayscale-0 cursor-not-allowed group">
+                class="relative block bg-academic-bg rounded-xl border border-slate-200 opacity-70 grayscale transition-all hover:opacity-100 hover:grayscale-0 cursor-not-allowed group">
                 <div class="p-6">
                     <div class="flex justify-between items-start mb-6">
                         <div
                             class="w-12 h-12 rounded-lg bg-academic-surface flex items-center justify-center text-academic-muted text-2xl">
                             <i class="fas fa-code"></i>
+                            <!-- Generic Code Icon or C++ if available? using code for now -->
                         </div>
-                        <!-- Fixed Planned Badge in dark mode -->
                         <span
-                            class="px-2 py-1 rounded bg-slate-200 dark:bg-slate-800 text-slate-500 dark:text-slate-400 text-[10px] font-bold uppercase tracking-wider border border-slate-300 dark:border-slate-700"
+                            class="px-2 py-1 rounded bg-slate-200 text-slate-500 text-[10px] font-bold uppercase tracking-wider border border-slate-300"
                             data-i18n="planned_badge">Planned</span>
                     </div>
 
@@ -172,7 +172,7 @@
     </main>
 
     <footer
-        class="py-8 text-center text-academic-muted text-xs font-mono tracking-widest uppercase border-t border-slate-200 dark:border-slate-800 mt-auto">
+        class="py-8 text-center text-academic-muted text-xs font-mono tracking-widest uppercase border-t border-slate-200 mt-auto">
         <!-- Copyright Removed -->
     </footer>
 

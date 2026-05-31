@@ -60,17 +60,17 @@
     <!-- Background Elements -->
     <div class="fixed inset-0 z-[-1] bg-grid-pattern opacity-60 pointer-events-none"></div>
 
-    <!-- Fixed Code Preview Overlay - Fixed blinding contrast in dark mode -->
+    <!-- Fixed Code Preview Overlay -->
     <div id="code-overlay"
         class="fixed top-24 right-8 w-80 lg:w-96 z-50 pointer-events-none opacity-0 translate-x-10 transition-all duration-500 cubic-bezier(0.34, 1.56, 0.64, 1)">
-        <div class="bg-white/95 dark:bg-slate-900 rounded-xl overflow-hidden border border-slate-200/80 dark:border-slate-800 shadow-xl shadow-blue-900/8 dark:shadow-black/40">
-            <div class="flex items-center justify-between px-4 py-2 bg-slate-50/80 dark:bg-slate-800/80 border-b border-slate-200/60 dark:border-slate-800">
+        <div class="bg-white rounded-xl overflow-hidden border border-blue-100 shadow-xl shadow-blue-900/10">
+            <div class="flex items-center justify-between px-4 py-2 bg-slate-50 border-b border-slate-100">
                 <div class="flex items-center gap-2">
                     <div class="w-2.5 h-2.5 rounded-full bg-slate-400"></div>
                     <div class="w-2.5 h-2.5 rounded-full bg-slate-400"></div>
                     <div class="w-2.5 h-2.5 rounded-full bg-slate-400"></div>
                 </div>
-                <div class="text-[10px] uppercase font-bold tracking-widest text-slate-600 dark:text-blue-400 flex items-center gap-2" data-i18n="preview_title">
+                <div class="text-[10px] uppercase font-bold tracking-widest text-blue-900 flex items-center gap-2">
                     <i class="fas fa-code text-xs text-blue-500"></i> Preview
                 </div>
             </div>
@@ -103,8 +103,8 @@
                 <a href="../../accounts/index.html" class="nav-link hover:text-academic-accent transition-colors"
                     data-i18n="nav_connect" data-nav-link="connect">Connect</a>
 
-                <!-- Toggles - Fixed RTL border and spacing with logical border-s -->
-                <div class="flex items-center gap-3 ps-6 border-s border-slate-200 dark:border-slate-800">
+                <!-- Toggles -->
+                <div class="flex items-center gap-3 pl-6 border-l border-slate-200">
                     <button id="theme-toggle" class="hover:text-academic-accent transition-colors"
                         aria-label="Toggle Dark Mode">
                         <i class="fas fa-moon"></i>
@@ -145,15 +145,15 @@
                         class="relative flex items-center justify-center w-10 h-10 rounded-lg bg-blue-600 text-white shadow-md shadow-blue-600/20">
                         <i class="fab fa-python text-2xl"></i>
                     </div>
-                    <h1 class="text-xl md:text-2xl font-bold tracking-tight text-academic-primary" data-i18n="course_python_header_title">
+                    <h1 class="text-xl md:text-2xl font-bold tracking-tight text-academic-primary">
                         Python <span class="text-academic-accent">Notes</span>
                     </h1>
                 </div>
 
                 <div class="hidden sm:flex items-center gap-4">
-                    <!-- Fixed invisible dark-mode text by using dark:text-slate-400 -->
+                    <!-- Toggles removed: moved to global nav -->
                     <div
-                        class="flex items-center gap-4 text-[10px] font-mono text-blue-900/60 dark:text-slate-400 uppercase tracking-widest">
+                        class="flex items-center gap-4 text-[10px] font-mono text-blue-900/60 uppercase tracking-widest">
                         <span class="flex items-center gap-1"><i class="fas fa-user-circle"></i> X7do0</span>
                     </div>
                 </div>
@@ -170,13 +170,13 @@
 
     <footer class="mt-12 py-12 text-center relative z-10">
         <div
-            class="h-[1px] w-full max-w-4xl mx-auto bg-gradient-to-r from-transparent via-blue-200 dark:via-blue-800 to-transparent mb-8">
+            class="h-[1px] w-full max-w-4xl mx-auto bg-gradient-to-r from-transparent via-blue-200 to-transparent mb-8">
         </div>
         <div class="flex flex-col items-center gap-2">
             <p
                 class="text-academic-secondary text-[10px] tracking-[0.3em] uppercase font-bold hover:text-academic-accent transition-colors duration-300 cursor-default">
                 X7do0eng</p>
-            <p class="text-academic-muted text-[8px] font-mono" data-i18n="python_header_sub">Academic Python Core</p>
+            <p class="text-academic-muted text-[8px] font-mono">Academic Python Core</p>
         </div>
     </footer>
 

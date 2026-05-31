@@ -1,39 +1,45 @@
-/* Semantic Color System */ 
+/* Semantic Color System */
 :root {
-    /* Light Theme (Default - Royal Academic) */
-    --bg-primary: #eef2f6;
-    /* Softer Blue-Gray */
-    --bg-card: #f8fafc;
-    /* Off-White (Slate-50) */
-    --bg-card-hover: #f1f5f9;
-    /* Slate-100 */
+    /* Light Theme (Default - Refined Academic) */
+    --bg-primary: #f6f8fb;
+    /* Soft warm off-white — reduces glare, Notion-inspired */
+    --bg-card: #ffffff;
+    /* Clean white card — creates gentle lift from background */
+    --bg-card-hover: #f0f3f7;
+    /* Subtle warm hover — not too dark, not invisible */
 
-    --text-primary: #0f172a;
-    /* Slate-900 */
-    --text-secondary: #475569;
-    /* Slate-600 */
-    --text-muted: #94a3b8;
-    /* Slate-400 */
+    --text-primary: #1a1f36;
+    /* Rich dark indigo — strong but warm, not pure black */
+    --text-secondary: #3d4f6f;
+    /* Deeper slate-blue — improved readability over previous */
+    --text-muted: #7b8ba5;
+    /* Warmer muted — still readable on all backgrounds */
 
-    --border-subtle: #e2e8f0;
-    /* Slate-200 */
+    --border-subtle: #e2e7f0;
+    /* Cool-tinted border — separates without harshness */
     --border-accent: #bfdbfe;
-    /* Blue-200 */
+    /* Blue-200 — unchanged, already well-tuned */
 
     --accent-primary: #2563eb;
-    /* Blue-600 */
+    /* Blue-600 — kept for brand consistency */
     --accent-hover: #1d4ed8;
-    /* Blue-700 */
-    --accent-surface: #eff6ff;
-    /* Blue-50 */
+    /* Blue-700 — kept */
+    --accent-surface: #f0f5ff;
+    /* Warmer blue-50 — softer accent surfaces */
 
-    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --shadow-sm: 0 1px 2px 0 rgb(14 30 60 / 0.04), 0 1px 3px 0 rgb(14 30 60 / 0.03);
+    --shadow-md: 0 2px 8px -2px rgb(14 30 60 / 0.08), 0 4px 12px -4px rgb(14 30 60 / 0.05);
 
-    /* Python Notes Specifics */
-    --code-bg: #f8fafc;
-    --code-border: #cbd5e1;
-    --code-text: #334155;
+    /* Navbar frosted glass */
+    --nav-bg: rgba(246, 248, 251, 0.88);
+
+    /* Code blocks */
+    --code-bg: #f0f3f8;
+    /* Warm code background — distinct from card bg */
+    --code-border: #d5dce8;
+    /* Refined code border */
+    --code-text: #2a3b52;
+    /* Stronger code text for readability */
 }
 
 [data-theme="dark"] {

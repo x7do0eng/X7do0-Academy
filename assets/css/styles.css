@@ -9,10 +9,10 @@ body {
 /* Subtle Grid Pattern - Blue Tint */
 .bg-grid-pattern {
     background-image:
-        linear-gradient(to right, rgba(59, 130, 246, 0.05) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(59, 130, 246, 0.05) 1px, transparent 1px);
+        linear-gradient(to right, rgba(59, 130, 246, 0.035) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(59, 130, 246, 0.035) 1px, transparent 1px);
     background-size: 40px 40px;
-    mask-image: radial-gradient(circle at center, black 60%, transparent 100%);
+    mask-image: radial-gradient(circle at center, black 50%, transparent 100%);
 }
 
 /* Academic Card Style */
@@ -47,8 +47,8 @@ body {
 
 .glass-card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08);
-    border-color: #cbd5e1;
+    box-shadow: 0 6px 16px -4px rgba(14, 30, 60, 0.07);
+    border-color: var(--border-accent);
 }
 
 .keyword {
@@ -182,9 +182,9 @@ div.w-24.h-24.rounded-full.bg-academic-card:hover i {
     position: sticky;
     top: 0;
     z-index: 50;
-    background-color: rgba(255, 255, 255, 0.8);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    background-color: var(--nav-bg);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
     border-bottom: 1px solid var(--border-subtle);
     transition: all 0.3s ease;
 }

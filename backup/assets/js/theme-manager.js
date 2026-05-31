@@ -16,7 +16,6 @@ const translations = {
     },
     "cta_start": { en: "Start Learning", ar: "ابدأ التعلم" },
     "cta_contact": { en: "Get in Touch", ar: "تواصل معي" },
-    "nav_home": { en: "Home", ar: "الرئيسية" },
     "nav_courses": { en: "Courses", ar: "الدورات" },
     "nav_connect": { en: "Connect", ar: "تواصل" },
     "footer_copy": { en: "© 2026 X7do0 Academy. All rights reserved.", ar: "© 2026 أكاديمية X7do0. جميع الحقوق محفوظة." },
@@ -57,14 +56,6 @@ const translations = {
     "desc_tg_channel": { en: "Official Channel", ar: "القناة الرسمية" },
     "desc_youtube": { en: "Video Tutorials & Courses", ar: "شروحات فيديو ودورات" },
     "desc_instagram": { en: "Personal Account", ar: "حساب شخصي" },
-
-    // Dynamic Python Course Elements
-    "course_python_header_title": { en: "Python <span>Notes</span>", ar: "ملاحظات <span>بايثون</span>" },
-    "python_header_sub": { en: "Academic Python Core", ar: "أساسيات بايثون الأكاديمية" },
-    "files_resources": { en: "Files & Resources", ar: "الملفات والمصادر" },
-    "lesson_code": { en: "Lesson Code", ar: "كود الدرس" },
-    "challenge": { en: "Challenge", ar: "التحدي البرمجي" },
-    "preview_title": { en: "Preview", ar: "معاينة الكود" }
 };
 
 // Immediate Execution to prevent flash
@@ -95,7 +86,8 @@ class ThemeManager {
         // Load Preferences
         const savedLang = localStorage.getItem('lang') || 'en';
 
-        // Initial Content Update
+        // Initial Content Update (Wait for DOM if needed, but this class runs on intent actions mostly)
+        // Since we are running new ThemeManager() on DOMContentLoaded, we can update content now
         this.updateContent(savedLang);
         this.updateIcons();
 
@@ -124,6 +116,7 @@ class ThemeManager {
     highlightActiveNav() {
         const currentPage = document.body.dataset.page;
         if (currentPage) {
+            // Map subpages to main nav items if needed
             const navKey = currentPage === 'python' ? 'courses' : currentPage;
             const activeLinks = document.querySelectorAll(`[data-nav-link="${navKey}"]`);
             activeLinks.forEach(link => {
@@ -151,15 +144,12 @@ class ThemeManager {
 
         this.updateContent(lang);
         this.updateIcons();
-
-        // Dispatch a global custom event for dynamic components (e.g. app.js) to re-render in the correct language
-        window.dispatchEvent(new CustomEvent('languageChanged', { detail: { lang } }));
     }
 
     updateContent(lang) {
         document.querySelectorAll('[data-i18n]').forEach(el => {
             const key = el.dataset.i18n;
-            if (translations[key] && translations[key][lang] !== undefined) {
+            if (translations[key] && translations[key][lang]) {
                 if (el.innerHTML.includes('<') || translations[key][lang].includes('<')) {
                     el.innerHTML = translations[key][lang];
                 } else {
@@ -167,18 +157,6 @@ class ThemeManager {
                 }
             }
         });
-
-        // Set document title if necessary
-        const page = document.body.dataset.page;
-        if (page === 'home') {
-            document.title = lang === 'ar' ? 'أكاديمية X7do0' : 'X7do0 Academy';
-        } else if (page === 'courses') {
-            document.title = lang === 'ar' ? 'الدورات المتاحة | أكاديمية X7do0' : 'Courses | X7do0 Academy';
-        } else if (page === 'python') {
-            document.title = lang === 'ar' ? 'أساسيات بايثون | أكاديمية X7do0' : 'Python Core | X7do0 Academy';
-        } else if (page === 'connect') {
-            document.title = lang === 'ar' ? 'تواصل معي | أكاديمية X7do0' : 'Connect | X7do0 Academy';
-        }
     }
 
     updateIcons() {

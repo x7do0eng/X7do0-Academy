@@ -16,3 +16,16 @@ test-results/
 
 # VS Code (optional)
 .vscode/
+
+# Screenshot artifacts (local only)
+before-*.png
+after-*.png
+docs/screenshots/
+
+# Temp directories
+tmp/
+temp/
+
+# Local environment
+.local/
+.cache/

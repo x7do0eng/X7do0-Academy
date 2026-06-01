@@ -29,3 +29,6 @@ temp/
 # Local environment
 .local/
 .cache/
+
+# Local hold directory (conflict resolution temporary storage)
+_local_hold/

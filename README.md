@@ -36,4 +36,4 @@ docs/
 
 ## License
 
-ISC
+MIT

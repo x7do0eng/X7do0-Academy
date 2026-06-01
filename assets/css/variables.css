@@ -1,90 +1,159 @@
-/* Semantic Color System */
+/* ══════════════════════════════════════════════════════
+   X7do0 Academy — Unified Semantic Token System
+   Light + Dark Themes
+   ══════════════════════════════════════════════════════ */
+
 :root {
-    /* Light Theme (Default - Refined Academic) */
-    --bg-primary: #f6f8fb;
-    /* Soft warm off-white — reduces glare, Notion-inspired */
-    --bg-card: #ffffff;
-    /* Clean white card — creates gentle lift from background */
-    --bg-card-hover: #f0f3f7;
-    /* Subtle warm hover — not too dark, not invisible */
+    /* ── Surface hierarchy — warmer neutrality, deeper separation ── */
+    --surface: #f4f5f6;
+    --surface-soft: #e9ebef;
+    --surface-elevated: #ffffff;
+    --surface-interactive: #e2e4ea;
 
-    --text-primary: #1a1f36;
-    /* Rich dark indigo — strong but warm, not pure black */
-    --text-secondary: #3d4f6f;
-    /* Deeper slate-blue — improved readability over previous */
-    --text-muted: #7b8ba5;
-    /* Warmer muted — still readable on all backgrounds */
+    /* ── Text hierarchy — richer, more comfortable ── */
+    --text-primary: #0f0f14;
+    --text-secondary: #3b3d47;
+    --text-muted: #878994;
 
-    --border-subtle: #e2e7f0;
-    /* Cool-tinted border — separates without harshness */
-    --border-accent: #bfdbfe;
-    /* Blue-200 — unchanged, already well-tuned */
+    /* ── Border hierarchy ── */
+    --border: #cdd0da;
+    --border-soft: #dcdee6;
 
-    --accent-primary: #2563eb;
-    /* Blue-600 — kept for brand consistency */
-    --accent-hover: #1d4ed8;
-    /* Blue-700 — kept */
-    --accent-surface: #f0f5ff;
-    /* Warmer blue-50 — softer accent surfaces */
+    /* ── Accent — royal blue, calm, distinct ── */
+    --accent: #3b5fe7;
+    --accent-soft: #eef1ff;
+    --accent-hover: #2d4cc4;
+    --accent-ring: rgba(59, 95, 231, 0.18);
+    --accent-deep: #2541b8;
 
-    --shadow-sm: 0 1px 2px 0 rgb(14 30 60 / 0.04), 0 1px 3px 0 rgb(14 30 60 / 0.03);
-    --shadow-md: 0 2px 8px -2px rgb(14 30 60 / 0.08), 0 4px 12px -4px rgb(14 30 60 / 0.05);
+    /* ── Semantic colors ── */
+    --success: #16a34a;
+    --success-soft: #ecfdf3;
+    --warning: #d97706;
+    --warning-soft: #fffbeb;
+    --danger: #dc2626;
+    --danger-soft: #fef2f2;
 
-    /* Navbar frosted glass */
-    --nav-bg: rgba(246, 248, 251, 0.88);
+    /* ── Shadow scale — tighter, more intentional ── */
+    --shadow-soft: 0 1px 2px rgba(0, 0, 0, 0.05), 0 1px 1px rgba(0, 0, 0, 0.03);
+    --shadow-medium: 0 4px 8px rgba(0, 0, 0, 0.06), 0 2px 4px rgba(0, 0, 0, 0.04);
+    --shadow-strong: 0 10px 24px -6px rgba(0, 0, 0, 0.08), 0 4px 8px -6px rgba(0, 0, 0, 0.04);
+    --shadow-elevated: 0 20px 40px -8px rgba(0, 0, 0, 0.12);
 
-    /* Code blocks */
-    --code-bg: #f0f3f8;
-    /* Warm code background — distinct from card bg */
-    --code-border: #d5dce8;
-    /* Refined code border */
-    --code-text: #2a3b52;
-    /* Stronger code text for readability */
+    /* ── Legacy aliases (backward compat) ── */
+    --bg-primary: var(--surface);
+    --bg-section: var(--surface-soft);
+    --bg-card: var(--surface-elevated);
+    --bg-card-hover: #eaecf3;
+    --bg-interactive: var(--surface-interactive);
+    --bg-code: #e9ebf2;
+    --code-border: #ced2dd;
+    --code-text: #1a1b2e;
+
+    /* ── Footer ── */
+    --bg-footer: var(--surface-elevated);
 }
 
 [data-theme="dark"] {
-    /* Dark Theme (Deep Navy/Slate) */
-    --bg-primary: #0f172a;
-    /* Slate-900 */
-    --bg-card: #1e293b;
-    /* Slate-800 */
-    --bg-card-hover: #334155;
-    /* Slate-700 */
+    /* ── Surface hierarchy — deeper, less purple tint ── */
+    --surface: #0a0b12;
+    --surface-soft: #0f101b;
+    --surface-elevated: #161827;
+    --surface-interactive: #1c1e2f;
 
-    --text-primary: #f1f5f9;
-    /* Slate-100 */
-    --text-secondary: #cbd5e1;
-    /* Slate-300 */
-    --text-muted: #64748b;
-    /* Slate-500 */
+    /* ── Text hierarchy ── */
+    --text-primary: #e4e5f0;
+    --text-secondary: #9a9bb0;
+    --text-muted: #5f617b;
 
-    --border-subtle: #334155;
-    /* Slate-700 */
-    --border-accent: #1e40af;
-    /* Blue-800 */
+    /* ── Border hierarchy ── */
+    --border: #24263c;
+    --border-soft: #1a1c2d;
 
-    --accent-primary: #60a5fa;
-    /* Blue-400 (Ligher for dark bg) */
-    --accent-hover: #3b82f6;
-    /* Blue-500 */
-    --accent-surface: #172554;
-    /* Blue-950 */
+    /* ── Accent — readable, confident blue ── */
+    --accent: #6d8eff;
+    --accent-soft: #181e3d;
+    --accent-hover: #8ba4ff;
+    --accent-ring: rgba(109, 142, 255, 0.25);
+    --accent-deep: #4a6fdf;
 
-    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.3);
-    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.5), 0 2px 4px -2px rgb(0 0 0 / 0.3);
+    /* ── Semantic colors ── */
+    --success: #22c55e;
+    --success-soft: #052e16;
+    --warning: #f59e0b;
+    --warning-soft: #451a03;
+    --danger: #ef4444;
+    --danger-soft: #450a0a;
 
-    /* Python Notes Specifics */
-    --code-bg: #1e293b;
-    --code-border: #475569;
-    --code-text: #e2e8f0;
+    /* ── Shadow scale — deeper, more dimensional ── */
+    --shadow-soft: 0 1px 3px rgba(0, 0, 0, 0.4);
+    --shadow-medium: 0 4px 10px rgba(0, 0, 0, 0.5), 0 2px 4px rgba(0, 0, 0, 0.35);
+    --shadow-strong: 0 10px 28px -6px rgba(0, 0, 0, 0.55), 0 4px 8px -6px rgba(0, 0, 0, 0.4);
+    --shadow-elevated: 0 20px 44px -8px rgba(0, 0, 0, 0.6);
+
+    /* ── Legacy aliases (backward compat) ── */
+    --bg-primary: var(--surface);
+    --bg-section: var(--surface-soft);
+    --bg-card: var(--surface-elevated);
+    --bg-card-hover: #1e2033;
+    --bg-interactive: var(--surface-interactive);
+    --bg-code: #121324;
+    --code-border: #24263c;
+    --code-text: #d4d5e3;
+    --bg-progress: #0a1f14;
+    --bg-elevated: #1e2035;
+    --bg-progress-bar: #1a2d4a;
+
+    --border-subtle: var(--border-soft);
+    --border-card: var(--border);
+    --border-accent: var(--accent);
+
+    --accent-primary: var(--accent);
+    --accent-hover-old: var(--accent-hover);
+    --accent-surface: var(--accent-soft);
+
+    --shadow-sm: var(--shadow-soft);
+    --shadow-md: var(--shadow-medium);
+    --shadow-lg: var(--shadow-strong);
+    --shadow-xl: var(--shadow-elevated);
+    --elevation-nav: 0 1px 3px rgba(0, 0, 0, 0.4);
+
+    --bg-footer: var(--surface-elevated);
+
+    --nav-bg: rgba(10, 11, 18, 0.85);
 }
 
-/* Common Transition */
-body,
-.academic-card,
-.glass-card,
-.keyword,
-nav,
-footer {
-    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+/* ── Smooth theme transitions ── */
+*,
+*::before,
+*::after {
+    transition: background-color 0.2s ease,
+                color 0.2s ease,
+                border-color 0.2s ease,
+                box-shadow 0.2s ease;
+}
+
+/* ── Scrollbar styling ── */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--text-muted);
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--accent);
+}
+
+/* ── Selection styling ── */
+::selection {
+    background: var(--accent-soft);
+    color: var(--accent);
 }

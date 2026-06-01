@@ -9,5 +9,10 @@ update.bat
 *.log
 *.tmp
 
+# Node / Playwright
+node_modules/
+playwright-report/
+test-results/
+
 # VS Code (optional)
 .vscode/

@@ -1,0 +1,157 @@
+{
+    "nav": {
+        "home": "Home",
+        "courses": "Courses",
+        "connect": "Connect"
+    },
+    "preview": {
+        "title": "Preview"
+    },
+    "home": {
+        "welcome_label": "Welcome",
+        "hero_title_html": "Master Complexity with <br/> <span class=\"text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-400\">Calm Precision</span>",
+        "hero_desc": "An educational philosophy built on minimalism, depth, and clarity. Focusing on the fundamental concepts that drive modern software engineering.",
+        "cta_start": "Start Learning",
+        "cta_contact": "Get in Touch",
+        "features": {
+            "struct_title": "Structured Learning",
+            "struct_desc": "Curated paths designed to build knowledge layer by layer.",
+            "code_title": "Practical Code",
+            "code_desc": "Real-world examples and interactive challenges.",
+            "deep_title": "Deep Fundamentals",
+            "deep_desc": "Understanding the 'Why' behind the syntax."
+        },
+        "instructor": {
+            "title": "The Instructor",
+            "bio": "Engineer & Educator. Building X7do0 Academy to bridge the gap between academic theory and practical engineering.",
+            "link": "More about me →"
+        }
+    },
+    "courses": {
+        "title": "Available Courses",
+        "desc": "Select a path to begin your journey. Our courses are designed for depth and durability.",
+        "back_home": "Back to Home",
+        "catalog": "Course Catalog",
+        "active_badge": "Active",
+        "planned_badge": "Planned",
+        "coming_soon": "Coming Soon",
+        "lessons_count": "Lessons",
+        "python": {
+            "title": "Python Core",
+            "desc": "Master the language of modern computing. From variables to complex data structures, built for clarity."
+        },
+        "cpp": {
+            "title": "C++ Systems",
+            "desc": "Dive into memory management and high-performance computing."
+        },
+        "csharp": {
+            "title": "C# Development",
+            "desc": "Build robust applications with the .NET ecosystem."
+        }
+    },
+    "page_title": {
+        "home": "X7do0 Academy",
+        "courses": "Courses | X7do0 Academy",
+        "python": "Python Core | X7do0 Academy",
+        "connect": "Connect | X7do0 Academy"
+    },
+    "connect": {
+        "title": "Get in Touch",
+        "desc": "Questions, collaborations, or just want to say hi? Connect with me on these platforms.",
+        "telegram_personal": "Personal Account",
+        "telegram_channel": "Official Channel",
+        "youtube": "Video Tutorials & Courses",
+        "instagram": "Personal Account"
+    },
+    "python": {
+        "name": "Python",
+        "notes": "Notes",
+        "practice_questions": "Practice Questions",
+        "notes_desc": "Course lessons and explanations",
+        "practice_desc": "25 coding challenges and exercises",
+        "header_notes_html": "Python <span class=\"text-academic-accent\">Notes</span>",
+        "header_practice_html": "Python <span class=\"text-academic-accent\">Practice Questions</span>",
+        "header_sub": "Academic Python Core",
+        "files_resources": "Files & Resources",
+        "lesson_code": "Lesson Code",
+        "challenge": "Challenge",
+        "practice": {
+            "categories": "Categories",
+            "progress": "Progress",
+            "resume": "Resume Learning",
+            "search": "Search...",
+            "search_label": "Search Python challenges",
+            "search_placeholder": "Search Python challenges (e.g. 'Loops', 'Lists')...",
+            "all_questions": "All Questions",
+            "back_to_questions": "Back to Practice Questions",
+            "continue_learning": "Continue Learning",
+            "all_completed": "All Completed",
+            "completed_count": "{completed} / {total} done",
+            "no_results_title": "No results found",
+            "no_results_desc": "Try adjusting your search or filters.",
+            "select_question": "Select a question to view details.",
+            "unknown_category": "Unknown",
+            "filters": "Practice filters"
+        },
+        "question": {
+            "label": "Question",
+            "prompt": "Prompt",
+            "steps": "Implementation Steps",
+            "solution": "Solution",
+            "output": "Output",
+            "show_steps": "Show Steps",
+            "show_solution": "Show Solution",
+            "show_output": "Show Output",
+            "expected_output": "Show Expected Output",
+            "mark_completed": "Mark as Completed",
+            "mark_incomplete": "Mark as Incomplete",
+            "status_completed": "Completed",
+            "status_incomplete": "Incomplete",
+            "previous": "Previous",
+            "next": "Next",
+            "menu": "Menu",
+            "error": "Error",
+            "invalid_id": "Please provide a valid question ID.",
+            "not_found": "Question #{id} not found.",
+            "return_to_questions": "Return to Questions"
+        }
+    },
+    "practice": {
+        "categories": "Categories",
+        "progress": "Progress",
+        "resume": "Resume Learning",
+        "search": "Search...",
+        "search_label": "Search Python challenges",
+        "search_placeholder": "Search Python challenges (e.g. 'Loops', 'Lists')...",
+        "all_questions": "All Questions",
+        "back_to_questions": "Back to Practice Questions",
+        "continue_learning": "Continue Learning",
+        "all_completed": "All Completed",
+        "completed_count": "{completed} / {total} done",
+        "no_results_title": "No results found",
+        "no_results_desc": "Try adjusting your search or filters.",
+        "select_question": "Select a question to view details.",
+        "unknown_category": "Unknown",
+        "filters": "Practice filters"
+    },
+    "question": {
+        "label": "Question",
+        "prompt": "Prompt",
+        "steps": "Implementation Steps",
+        "solution": "Solution",
+        "output": "Output",
+        "show_solution": "Show Solution",
+        "expected_output": "Show Expected Output",
+        "mark_completed": "Mark as Completed",
+        "mark_incomplete": "Mark as Incomplete",
+        "status_completed": "Completed",
+        "status_incomplete": "Incomplete",
+        "previous": "Previous",
+        "next": "Next",
+        "menu": "Menu",
+        "error": "Error",
+        "invalid_id": "Please provide a valid question ID.",
+        "not_found": "Question #{id} not found.",
+        "return_to_questions": "Return to Questions"
+    }
+}

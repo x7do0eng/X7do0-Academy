@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Core | X7do0 Academy</title>
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500&family=Noto+Sans+Arabic:wght@300;400;600;700&family=Outfit:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../assets/css/variables.css">
+    <link rel="stylesheet" href="../../assets/css/styles.css">
+
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                        mono: ['Fira Code', 'monospace'],
+                        arabic: ['Noto Sans Arabic', 'sans-serif'],
+                    },
+                    colors: {
+                        academic: {
+                            bg: 'var(--bg-primary)',
+                            card: 'var(--bg-card)',
+                            primary: 'var(--text-primary)',
+                            secondary: 'var(--text-secondary)',
+                            accent: 'var(--accent-primary)',
+                            muted: 'var(--text-muted)',
+                        }
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.5s ease-out forwards',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0', transform: 'translateY(10px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <script src="../../assets/js/theme-manager.js"></script>
+</head>
+
+<body class="antialiased selection:bg-blue-200 selection:text-blue-900 pb-20" data-page="python">
+
+    <!-- Background Elements -->
+    <div class="fixed inset-0 z-[-1] bg-grid-pattern opacity-60 pointer-events-none"></div>
+
+    <!-- Fixed Code Preview Overlay -->
+    <div id="code-overlay"
+        class="fixed top-24 right-8 w-80 lg:w-96 z-50 pointer-events-none opacity-0 translate-x-10 transition-all duration-500 cubic-bezier(0.34, 1.56, 0.64, 1)">
+        <div class="bg-white rounded-xl overflow-hidden border border-blue-100 shadow-xl shadow-blue-900/10">
+            <div class="flex items-center justify-between px-4 py-2 bg-slate-50 border-b border-slate-100">
+                <div class="flex items-center gap-2">
+                    <div class="w-2.5 h-2.5 rounded-full bg-slate-400"></div>
+                    <div class="w-2.5 h-2.5 rounded-full bg-slate-400"></div>
+                    <div class="w-2.5 h-2.5 rounded-full bg-slate-400"></div>
+                </div>
+                <div class="text-[10px] uppercase font-bold tracking-widest text-blue-900 flex items-center gap-2">
+                    <i class="fas fa-code text-xs text-blue-500"></i> Preview
+                </div>
+            </div>
+            <div class="p-5 bg-slate-900 relative group">
+                <pre id="overlay-content"
+                    class="text-sm font-mono text-emerald-300 whitespace-pre-wrap relative z-10 leading-relaxed"></pre>
+            </div>
+        </div>
+    </div>
+
+    <!-- Global Sticky Nav -->
+    <nav class="w-full py-6 px-4 navbar-sticky">
+        <div class="max-w-4xl mx-auto flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <a href="../../index.html" class="flex items-center gap-3 group">
+                    <div
+                        class="w-8 h-8 rounded bg-blue-600 flex items-center justify-center text-white shadow-md group-hover:scale-105 transition-transform">
+                        <i class="fas fa-graduation-cap text-sm"></i>
+                    </div>
+                    <span
+                        class="font-bold text-lg tracking-tight text-academic-primary group-hover:text-blue-600 transition-colors">X7do0
+                        <span class="text-academic-accent">Academy</span></span>
+                </a>
+            </div>
+            <div class="flex items-center gap-6 text-sm font-medium text-academic-secondary">
+                <a href="../../index.html" class="nav-link hover:text-academic-accent transition-colors"
+                    data-i18n="nav_home" data-nav-link="home">Home</a>
+                <a href="../index.html" class="nav-link hover:text-academic-accent transition-colors"
+                    data-i18n="nav_courses" data-nav-link="courses">Courses</a>
+                <a href="../../accounts/index.html" class="nav-link hover:text-academic-accent transition-colors"
+                    data-i18n="nav_connect" data-nav-link="connect">Connect</a>
+
+                <!-- Toggles -->
+                <div class="flex items-center gap-3 pl-6 border-l border-slate-200">
+                    <button id="theme-toggle" class="hover:text-academic-accent transition-colors"
+                        aria-label="Toggle Dark Mode">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    <button id="lang-toggle"
+                        class="hover:text-academic-accent transition-colors font-mono text-xs font-bold"
+                        aria-label="Toggle Language">
+                        <span>عربي</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb Navigation -->
+    <nav class="max-w-7xl mx-auto px-4 py-4">
+        <div class="flex items-center gap-2 text-xs font-mono text-academic-muted">
+            <a href="../../index.html" class="hover:text-academic-accent transition-colors"
+                data-i18n="nav_home">Home</a>
+            <span>/</span>
+            <a href="../index.html" class="hover:text-academic-accent transition-colors"
+                data-i18n="nav_courses">Courses</a>
+            <span>/</span>
+            <span class="text-academic-secondary">Python</span>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="sticky top-0 z-40 py-4 px-4">
+        <div class="max-w-7xl mx-auto">
+            <div
+                class="academic-card px-6 py-4 flex justify-between items-center relative overflow-hidden bg-academic-card border-t-0">
+                <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-600 via-blue-400 to-blue-600">
+                </div>
+
+                <div class="flex items-center gap-4">
+                    <div
+                        class="relative flex items-center justify-center w-10 h-10 rounded-lg bg-blue-600 text-white shadow-md shadow-blue-600/20">
+                        <i class="fab fa-python text-2xl"></i>
+                    </div>
+                    <h1 class="text-xl md:text-2xl font-bold tracking-tight text-academic-primary">
+                        Python <span class="text-academic-accent">Notes</span>
+                    </h1>
+                </div>
+
+                <div class="hidden sm:flex items-center gap-4">
+                    <!-- Toggles removed: moved to global nav -->
+                    <div
+                        class="flex items-center gap-4 text-[10px] font-mono text-blue-900/60 uppercase tracking-widest">
+                        <span class="flex items-center gap-1"><i class="fas fa-user-circle"></i> X7do0</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 py-8">
+        <!-- Lessons Grid Container -->
+        <div id="lesson-grid" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 auto-rows-min">
+            <!-- Dynamic Content Injected Here -->
+        </div>
+    </main>
+
+    <footer class="mt-12 py-12 text-center relative z-10">
+        <div
+            class="h-[1px] w-full max-w-4xl mx-auto bg-gradient-to-r from-transparent via-blue-200 to-transparent mb-8">
+        </div>
+        <div class="flex flex-col items-center gap-2">
+            <p
+                class="text-academic-secondary text-[10px] tracking-[0.3em] uppercase font-bold hover:text-academic-accent transition-colors duration-300 cursor-default">
+                X7do0eng</p>
+            <p class="text-academic-muted text-[8px] font-mono">Academic Python Core</p>
+        </div>
+    </footer>
+
+    <!-- Main Application Logic -->
+    <!-- Theme script moved to head -->
+    <script type="module" src="../../assets/js/app.js"></script>
+</body>
+
+</html>

@@ -19,6 +19,11 @@
     <link rel="stylesheet" href="../../assets/css/variables.css">
     <link rel="stylesheet" href="../../assets/css/styles.css">
 
+    <!-- Syntax Highlighting -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css" id="hljs-theme-link">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>if(document.documentElement.dataset.theme==='dark'){const l=document.getElementById('hljs-theme-link');if(l)l.href='https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css'}</script>
+
     <!-- Tailwind Config -->
     <script>
         tailwind.config = {
@@ -38,43 +43,46 @@
                             accent: 'var(--accent-primary)',
                             muted: 'var(--text-muted)',
                         }
-                    },
-                    animation: {
-                        'fade-in': 'fadeIn 0.5s ease-out forwards',
-                    },
-                    keyframes: {
-                        fadeIn: {
-                            '0%': { opacity: '0', transform: 'translateY(10px)' },
-                            '100%': { opacity: '1', transform: 'translateY(0)' },
-                        }
                     }
                 }
             }
         }
     </script>
     <script src="../../assets/js/theme-manager.js"></script>
+    <script type="module">
+        import i18n from '../../assets/js/i18n.js';
+        i18n.init();
+    </script>
+    <script src="../../assets/js/nav-drawer.js"></script>
 </head>
 
-<body class="antialiased selection:bg-blue-200 selection:text-blue-900 pb-20" data-page="python">
+<body class="antialiased pb-20"
+    data-page="python"
+    data-nav-section="courses"
+    data-nav-home="../../index.html"
+    data-nav-courses="../index.html"
+    data-nav-connect="../../accounts/index.html">
 
     <!-- Background Elements -->
     <div class="fixed inset-0 z-[-1] bg-grid-pattern opacity-60 pointer-events-none"></div>
 
-    <!-- Fixed Code Preview Overlay - Fixed blinding contrast in dark mode -->
+    <!-- Code Preview Overlay -->
     <div id="code-overlay"
         class="fixed top-24 right-8 w-80 lg:w-96 z-50 pointer-events-none opacity-0 translate-x-10 transition-all duration-500 cubic-bezier(0.34, 1.56, 0.64, 1)">
-        <div class="bg-white/95 dark:bg-slate-900 rounded-xl overflow-hidden border border-slate-200/80 dark:border-slate-800 shadow-xl shadow-blue-900/8 dark:shadow-black/40">
-            <div class="flex items-center justify-between px-4 py-2 bg-slate-50/80 dark:bg-slate-800/80 border-b border-slate-200/60 dark:border-slate-800">
+        <div class="code-overlay-card">
+            <div class="code-overlay-header">
                 <div class="flex items-center gap-2">
                     <div class="w-2.5 h-2.5 rounded-full bg-slate-400"></div>
                     <div class="w-2.5 h-2.5 rounded-full bg-slate-400"></div>
                     <div class="w-2.5 h-2.5 rounded-full bg-slate-400"></div>
                 </div>
-                <div class="text-[10px] uppercase font-bold tracking-widest text-slate-600 dark:text-blue-400 flex items-center gap-2" data-i18n="preview_title">
-                    <i class="fas fa-code text-xs text-blue-500"></i> Preview
+                <div
+                    class="text-[10px] uppercase font-bold tracking-widest text-slate-600 dark:text-blue-400 flex items-center gap-2">
+                    <i class="fas fa-code text-xs text-blue-500"></i>
+                    <span data-i18n="preview_title">Preview</span>
                 </div>
             </div>
-            <div class="p-5 bg-slate-900 relative group">
+            <div class="code-overlay-body relative group">
                 <pre id="overlay-content"
                     class="text-sm font-mono text-emerald-300 whitespace-pre-wrap relative z-10 leading-relaxed"></pre>
             </div>
@@ -87,35 +95,44 @@
             <div class="flex items-center gap-3">
                 <a href="../../index.html" class="flex items-center gap-3 group">
                     <div
-                        class="w-8 h-8 rounded bg-blue-600 flex items-center justify-center text-white shadow-md group-hover:scale-105 transition-transform">
+                        class="w-8 h-8 rounded bg-accent-solid flex items-center justify-center shadow-sm group-hover:scale-105 transition-transform">
                         <i class="fas fa-graduation-cap text-sm"></i>
                     </div>
                     <span
-                        class="font-bold text-lg tracking-tight text-academic-primary group-hover:text-blue-600 transition-colors">X7do0
+                        class="font-bold text-lg tracking-tight text-academic-primary transition-colors">X7do0
                         <span class="text-academic-accent">Academy</span></span>
                 </a>
             </div>
-            <div class="flex items-center gap-6 text-sm font-medium text-academic-secondary">
+            <div class="hidden md:flex items-center gap-6 text-sm font-medium text-academic-secondary">
                 <a href="../../index.html" class="nav-link hover:text-academic-accent transition-colors"
-                    data-i18n="nav_home" data-nav-link="home">Home</a>
+                    data-i18n="nav.home" data-nav-link="home">Home</a>
                 <a href="../index.html" class="nav-link hover:text-academic-accent transition-colors"
-                    data-i18n="nav_courses" data-nav-link="courses">Courses</a>
+                    data-i18n="nav.courses" data-nav-link="courses">Courses</a>
                 <a href="../../accounts/index.html" class="nav-link hover:text-academic-accent transition-colors"
-                    data-i18n="nav_connect" data-nav-link="connect">Connect</a>
-
-                <!-- Toggles - Fixed RTL border and spacing with logical border-s -->
-                <div class="flex items-center gap-3 ps-6 border-s border-slate-200 dark:border-slate-800">
-                    <button id="theme-toggle" class="hover:text-academic-accent transition-colors"
-                        aria-label="Toggle Dark Mode">
-                        <i class="fas fa-moon"></i>
-                    </button>
-                    <button id="lang-toggle"
-                        class="hover:text-academic-accent transition-colors font-mono text-xs font-bold"
-                        aria-label="Toggle Language">
-                        <span>عربي</span>
-                    </button>
-                </div>
+                    data-i18n="nav.connect" data-nav-link="connect">Connect</a>
+                <div class="nav-divider"></div>
             </div>
+
+            <!-- Toggles -->
+            <button id="theme-toggle"
+                class="flex items-center justify-center hover:text-academic-accent transition-colors rounded-lg hover:bg-[var(--bg-card-hover)]"
+                aria-label="Toggle Dark Mode">
+                <i class="fas fa-moon"></i>
+            </button>
+            <button id="lang-toggle"
+                class="flex items-center justify-center hover:text-academic-accent transition-colors font-mono text-xs font-bold rounded-lg hover:bg-[var(--bg-card-hover)]"
+                aria-label="Toggle Language">
+                <span>عربي</span>
+            </button>
+
+            <!-- Hamburger (mobile only) -->
+            <button id="hamburger-btn"
+                class="md:hidden flex items-center justify-center rounded-lg hover:bg-[var(--bg-card-hover)] transition-colors text-academic-secondary hover:text-academic-accent"
+                aria-label="Open navigation menu"
+                aria-expanded="false"
+                aria-controls="mobile-nav-drawer">
+                <i class="fas fa-bars text-lg"></i>
+            </button>
         </div>
     </nav>
 
@@ -128,7 +145,7 @@
             <a href="../index.html" class="hover:text-academic-accent transition-colors"
                 data-i18n="nav_courses">Courses</a>
             <span>/</span>
-            <span class="text-academic-secondary">Python</span>
+            <span class="text-academic-secondary" data-i18n="python_name">Python</span>
         </div>
     </nav>
 
@@ -136,16 +153,15 @@
     <header class="sticky top-0 z-40 py-4 px-4">
         <div class="max-w-7xl mx-auto">
             <div
-                class="academic-card px-6 py-4 flex justify-between items-center relative overflow-hidden bg-academic-card border-t-0">
-                <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-600 via-blue-400 to-blue-600">
-                </div>
+                class="academic-card card-accent-top px-6 py-4 flex justify-between items-center relative overflow-hidden bg-academic-card">
 
                 <div class="flex items-center gap-4">
                     <div
-                        class="relative flex items-center justify-center w-10 h-10 rounded-lg bg-blue-600 text-white shadow-md shadow-blue-600/20">
+                        class="relative flex items-center justify-center w-10 h-10 rounded-lg bg-accent-solid shadow-sm">
                         <i class="fab fa-python text-2xl"></i>
                     </div>
-                    <h1 class="text-xl md:text-2xl font-bold tracking-tight text-academic-primary" data-i18n="course_python_header_title">
+                    <h1 class="text-2xl md:text-3xl font-bold tracking-tight text-academic-primary"
+                        data-i18n="course_python_notes_header_title" data-i18n-html="true">
                         Python <span class="text-academic-accent">Notes</span>
                     </h1>
                 </div>
@@ -158,6 +174,31 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Python Course Sub-navigation -->
+            <nav class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4">
+                <a href="./index.html"
+                    class="academic-card p-4 border-s-accent bg-[var(--accent-soft)] flex items-center gap-4 transition-all">
+                    <div class="w-10 h-10 rounded bg-accent-solid flex items-center justify-center">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <div>
+                        <div class="text-academic-primary font-bold" data-i18n="python_notes_card_title">Notes</div>
+                        <div class="text-xs text-academic-secondary" data-i18n="python_notes_card_desc">Course lessons and explanations</div>
+                    </div>
+                </a>
+                <a href="./practice/index.html"
+                    class="academic-card p-4 border-s-4 border-[var(--border-soft)] hover:border-[var(--accent)] flex items-center gap-4 transition-all group">
+                    <div
+                        class="w-10 h-10 rounded bg-[var(--bg-interactive)] flex items-center justify-center text-[var(--text-muted)] group-hover:bg-[var(--accent)] group-hover:text-white transition-all">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <div>
+                        <div class="text-academic-primary font-bold opacity-70 group-hover:opacity-100 transition-opacity" data-i18n="python_practice_card_title">Practice Questions</div>
+                        <div class="text-xs text-academic-muted" data-i18n="python_practice_card_desc">25 coding challenges and exercises</div>
+                    </div>
+                </a>
+            </nav>
         </div>
     </header>
 
@@ -170,7 +211,7 @@
 
     <footer class="mt-12 py-12 text-center relative z-10">
         <div
-            class="h-[1px] w-full max-w-4xl mx-auto bg-gradient-to-r from-transparent via-blue-200 dark:via-blue-800 to-transparent mb-8">
+            class="divider-gradient max-w-4xl mx-auto mb-8">
         </div>
         <div class="flex flex-col items-center gap-2">
             <p

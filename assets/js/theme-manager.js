@@ -1,71 +1,8 @@
 /**
  * Theme & Language Manager
- * Handles global state for Dark Mode and i18n
+ * Handles global state for Dark Mode (only).
+ * Localization is delegated to i18n.js.
  */
-
-const translations = {
-    // --- Home ---
-    "welcome_label": { en: "Welcome", ar: "مرحباً" },
-    "hero_title": {
-        en: "Master Complexity with <br/> <span class='text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-400'>Calm Precision</span>",
-        ar: "أتقن التعقيد بـ <br/> <span class='text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-400'>دقة وهدوء</span>"
-    },
-    "hero_desc": {
-        en: "An educational philosophy built on minimalism, depth, and clarity. Focusing on the fundamental concepts that drive modern software engineering.",
-        ar: "فلسفة تعليمية مبنية على البساطة، العمق، والوضوح. نركز على المفاهيم الأساسية التي تقود هندسة البرمجيات الحديثة."
-    },
-    "cta_start": { en: "Start Learning", ar: "ابدأ التعلم" },
-    "cta_contact": { en: "Get in Touch", ar: "تواصل معي" },
-    "nav_home": { en: "Home", ar: "الرئيسية" },
-    "nav_courses": { en: "Courses", ar: "الدورات" },
-    "nav_connect": { en: "Connect", ar: "تواصل" },
-    "footer_copy": { en: "© 2026 X7do0 Academy. All rights reserved.", ar: "© 2026 أكاديمية X7do0. جميع الحقوق محفوظة." },
-
-    // --- Features ---
-    "feat_struct_title": { en: "Structured Learning", ar: "تعلم منهجي" },
-    "feat_struct_desc": { en: "Curated paths designed to build knowledge layer by layer.", ar: "مسارات مصممة بعناية لبناء المعرفة طبقة تلو الأخرى." },
-    "feat_code_title": { en: "Practical Code", ar: "كود تطبيقي" },
-    "feat_code_desc": { en: "Real-world examples and interactive challenges.", ar: "أمثلة واقعية وتحديات تفاعلية." },
-    "feat_deep_title": { en: "Deep Fundamentals", ar: "أساسيات عميقة" },
-    "feat_deep_desc": { en: "Understanding the 'Why' behind the syntax.", ar: "فهم الـ 'لماذا' خلف الكود." },
-
-    // --- Homepage Instructor ---
-    "instructor_title": { en: "The Instructor", ar: "عن المدرب" },
-    "instructor_bio": { en: "Engineer & Educator. Building X7do0 Academy to bridge the gap between academic theory and practical engineering.", ar: "مهندس ومدرّب. أبني أكاديمية X7do0 لسد الفجوة بين النظرية الأكاديمية والهندسة العملية." },
-    "instructor_link": { en: "More about me →", ar: "المزيد عني ←" },
-
-    // --- Courses ---
-    "courses_title": { en: "Available Courses", ar: "الدورات المتاحة" },
-    "courses_desc": { en: "Select a path to begin your journey. Our courses are designed for depth and durability.", ar: "اختر مسارك لتبدأ الرحلة. دوراتنا مصممة للعمق والاستدامة." },
-    "back_home": { en: "Back to Home", ar: "العودة للرئيسية" },
-    "course_catalog": { en: "Course Catalog", ar: "فهرس الدورات" },
-    "active_badge": { en: "Active", ar: "نشط" },
-    "planned_badge": { en: "Planned", ar: "مخطط" },
-    "coming_soon": { en: "Coming Soon", ar: "قريباً" },
-    "lessons_count": { en: "Lessons", ar: "درس" },
-    "course_python_title": { en: "Python Core", ar: "أساسيات بايثون" },
-    "course_python_desc": { en: "Master the language of modern computing. From variables to complex data structures, built for clarity.", ar: "أتقن لغة الحوسبة الحديثة. من المتغيرات إلى هياكل البيانات المعقدة، مصممة بوضوح." },
-    "course_cpp_title": { en: "C++ Systems", ar: "أنظمة C++" },
-    "course_cpp_desc": { en: "Dive into memory management and high-performance computing.", ar: "تعمق في إدارة الذاكرة والحوسبة عالية الأداء." },
-
-    // --- Connect ---
-    "connect_title": { en: "Get in Touch", ar: "تواصل معي" },
-    "connect_desc": { en: "Questions, collaborations, or just want to say hi? Connect with me on these platforms.", ar: "أسئلة، تعاون، أو مجرد إلقاء تحية؟ تواصل معي عبر هذه المنصات." },
-
-    // New Accounts Keys
-    "desc_tg_personal": { en: "Personal Account", ar: "حسابي الشخصي" },
-    "desc_tg_channel": { en: "Official Channel", ar: "القناة الرسمية" },
-    "desc_youtube": { en: "Video Tutorials & Courses", ar: "شروحات فيديو ودورات" },
-    "desc_instagram": { en: "Personal Account", ar: "حساب شخصي" },
-
-    // Dynamic Python Course Elements
-    "course_python_header_title": { en: "Python <span>Notes</span>", ar: "ملاحظات <span>بايثون</span>" },
-    "python_header_sub": { en: "Academic Python Core", ar: "أساسيات بايثون الأكاديمية" },
-    "files_resources": { en: "Files & Resources", ar: "الملفات والمصادر" },
-    "lesson_code": { en: "Lesson Code", ar: "كود الدرس" },
-    "challenge": { en: "Challenge", ar: "التحدي البرمجي" },
-    "preview_title": { en: "Preview", ar: "معاينة الكود" }
-};
 
 // Immediate Execution to prevent flash
 (function () {
@@ -83,6 +20,17 @@ const translations = {
     } else {
         document.documentElement.classList.remove('font-arabic');
     }
+
+    // Force icon sync if possible
+    window.addEventListener('DOMContentLoaded', () => {
+        const langToggle = document.getElementById('lang-toggle');
+        if (langToggle) {
+            const span = langToggle.querySelector('span');
+            if (span) {
+                span.textContent = savedLang === 'ar' ? 'EN' : 'عربي';
+            }
+        }
+    });
 })();
 
 class ThemeManager {
@@ -92,12 +40,8 @@ class ThemeManager {
     }
 
     init() {
-        // Load Preferences
-        const savedLang = localStorage.getItem('lang') || 'en';
-
-        // Initial Content Update
-        this.updateContent(savedLang);
-        this.updateIcons();
+        // Highlight Active Nav
+        this.highlightActiveNav();
 
         // Event Listeners
         this.themeToggle = document.getElementById('theme-toggle');
@@ -116,15 +60,12 @@ class ThemeManager {
                 this.setLang(newLang);
             });
         }
-
-        // Highlight Active Nav
-        this.highlightActiveNav();
     }
 
     highlightActiveNav() {
         const currentPage = document.body.dataset.page;
         if (currentPage) {
-            const navKey = currentPage === 'python' ? 'courses' : currentPage;
+            const navKey = document.body.dataset.navSection || currentPage;
             const activeLinks = document.querySelectorAll(`[data-nav-link="${navKey}"]`);
             activeLinks.forEach(link => {
                 link.classList.add('nav-link-active');
@@ -136,6 +77,12 @@ class ThemeManager {
         this.html.dataset.theme = theme;
         localStorage.setItem('theme', theme);
         this.updateIcons();
+        const hljsLink = document.getElementById('hljs-theme-link');
+        if (hljsLink) {
+            hljsLink.href = theme === 'dark'
+                ? 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css'
+                : 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css';
+        }
     }
 
     setLang(lang) {
@@ -149,36 +96,10 @@ class ThemeManager {
             this.html.classList.remove('font-arabic');
         }
 
-        this.updateContent(lang);
         this.updateIcons();
 
-        // Dispatch a global custom event for dynamic components (e.g. app.js) to re-render in the correct language
-        window.dispatchEvent(new CustomEvent('languageChanged', { detail: { lang } }));
-    }
-
-    updateContent(lang) {
-        document.querySelectorAll('[data-i18n]').forEach(el => {
-            const key = el.dataset.i18n;
-            if (translations[key] && translations[key][lang] !== undefined) {
-                if (el.innerHTML.includes('<') || translations[key][lang].includes('<')) {
-                    el.innerHTML = translations[key][lang];
-                } else {
-                    el.textContent = translations[key][lang];
-                }
-            }
-        });
-
-        // Set document title if necessary
-        const page = document.body.dataset.page;
-        if (page === 'home') {
-            document.title = lang === 'ar' ? 'أكاديمية X7do0' : 'X7do0 Academy';
-        } else if (page === 'courses') {
-            document.title = lang === 'ar' ? 'الدورات المتاحة | أكاديمية X7do0' : 'Courses | X7do0 Academy';
-        } else if (page === 'python') {
-            document.title = lang === 'ar' ? 'أساسيات بايثون | أكاديمية X7do0' : 'Python Core | X7do0 Academy';
-        } else if (page === 'connect') {
-            document.title = lang === 'ar' ? 'تواصل معي | أكاديمية X7do0' : 'Connect | X7do0 Academy';
-        }
+        // Notify i18n.js to update all text content
+        window.dispatchEvent(new CustomEvent('languagePreferenceChanged', { detail: { lang } }));
     }
 
     updateIcons() {

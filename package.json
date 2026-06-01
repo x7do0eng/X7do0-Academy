@@ -1,0 +1,25 @@
+{
+  "name": "x7do0-academy",
+  "version": "1.0.0",
+  "description": "Educational platform for programming and computer engineering learning.",
+  "main": "index.js",
+  "scripts": {
+    "test:e2e": "playwright test",
+    "test:e2e:headed": "playwright test --headed",
+    "test:e2e:ui": "playwright test --ui"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/x7do0eng/X7do0-Academy.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/x7do0eng/X7do0-Academy/issues"
+  },
+  "homepage": "https://github.com/x7do0eng/X7do0-Academy#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.60.0"
+  }
+}

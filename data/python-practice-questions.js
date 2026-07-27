@@ -86,8 +86,8 @@ export const questions = [
     "id": 1,
     "categoryId": "fibonacci",
     "title": {
-      "en": "Question 1",
-      "ar": "السؤال 1"
+      "en": "Question 1: Print the First N Fibonacci Numbers",
+      "ar": "السؤال 1: طباعة أول N من متتالية فيبوناتشي"
     },
     "prompt": {
       "en": "Write a program that asks the user to enter a positive integer `N`, then prints the first `N` numbers of the `Fibonacci` sequence.",
@@ -116,8 +116,8 @@ export const questions = [
     "id": 2,
     "categoryId": "fibonacci",
     "title": {
-      "en": "Question 2",
-      "ar": "السؤال 2"
+      "en": "Question 2: Fibonacci Numbers Divisible by 3",
+      "ar": "السؤال 2: أعداد فيبوناتشي القابلة للقسمة على 3"
     },
     "prompt": {
       "en": "Write a program that asks the user to enter a positive integer `N`, generates the first `N` numbers of the `Fibonacci` sequence, stores them in a `List`, and then prints the values that are divisible by `3` without a remainder.",
@@ -146,8 +146,8 @@ export const questions = [
     "id": 3,
     "categoryId": "fibonacci",
     "title": {
-      "en": "Question 3",
-      "ar": "السؤال 3"
+      "en": "Question 3: Fibonacci Numbers Below N",
+      "ar": "السؤال 3: أعداد فيبوناتشي الأصغر من N"
     },
     "prompt": {
       "en": "Write a program that asks the user to enter a positive integer `N`, then prints all `Fibonacci` sequence numbers that are strictly less than the entered number `N`.",
@@ -174,8 +174,8 @@ export const questions = [
     "id": 4,
     "categoryId": "factorial",
     "title": {
-      "en": "Question 4",
-      "ar": "السؤال 4"
+      "en": "Question 4: Calculate a Factorial",
+      "ar": "السؤال 4: حساب مضروب عدد"
     },
     "prompt": {
       "en": "Write a program that asks the user to enter a positive integer `N`, calculates the `Factorial` value of the entered number, and prints it.",
@@ -204,8 +204,8 @@ export const questions = [
     "id": 5,
     "categoryId": "factorial",
     "title": {
-      "en": "Question 5",
-      "ar": "السؤال 5"
+      "en": "Question 5: Factorial Result Parity",
+      "ar": "السؤال 5: تحديد زوجية ناتج المضروب"
     },
     "prompt": {
       "en": "Write a program that asks the user to enter a positive integer `N`, calculates its `Factorial`, checks if the result is even or odd, and prints the result.",
@@ -232,8 +232,8 @@ export const questions = [
     "id": 6,
     "categoryId": "factorial",
     "title": {
-      "en": "Question 6",
-      "ar": "السؤال 6"
+      "en": "Question 6: Sum Factorials from 1 to N",
+      "ar": "السؤال 6: جمع المضاريب من 1 إلى N"
     },
     "prompt": {
       "en": "Write a program that asks the user to enter a positive integer `N`, calculates the sum of factorials from `1!` to `N!`, and prints the result.",
@@ -264,8 +264,8 @@ export const questions = [
     "id": 7,
     "categoryId": "lists",
     "title": {
-      "en": "Question 7",
-      "ar": "السؤال 7"
+      "en": "Question 7: Analyze a List of Ten Numbers",
+      "ar": "السؤال 7: تحليل قائمة من عشرة أعداد"
     },
     "prompt": {
       "en": "Write a program that takes `10` integers from the user, stores them in a `List`, and performs various operations (Print, Sum, Average, Maximum, Minimum, Elements greater/less than average).",
@@ -292,8 +292,8 @@ export const questions = [
     "id": 8,
     "categoryId": "lists",
     "title": {
-      "en": "Question 8",
-      "ar": "السؤال 8"
+      "en": "Question 8: Filter Numbers Above a Threshold",
+      "ar": "السؤال 8: تصفية الأعداد الأكبر من قيمة محددة"
     },
     "prompt": {
       "en": "Write a program that asks the user to enter integers until `0` is entered to stop the loop. Then, request a specific target number and print all numbers greater than it along with their count.",
@@ -320,8 +320,8 @@ export const questions = [
     "id": 9,
     "categoryId": "lists",
     "title": {
-      "en": "Question 9",
-      "ar": "السؤال 9"
+      "en": "Question 9: Filter a List by Divisibility",
+      "ar": "السؤال 9: تصفية قائمة حسب قابلية القسمة"
     },
     "prompt": {
       "en": "Write a program that asks for `10` numbers to populate a `List`, then asks for a specific divisor, and prints all numbers in the list that are fully divisible by it.",
@@ -348,8 +348,8 @@ export const questions = [
     "id": 10,
     "categoryId": "prime-numbers",
     "title": {
-      "en": "Question 10",
-      "ar": "السؤال 10"
+      "en": "Question 10: Check Whether a Number Is Prime",
+      "ar": "السؤال 10: التحقق من العدد الأولي"
     },
     "prompt": {
       "en": "Write a program to verify whether the entered number is a prime number and print `True` or `False` accordingly.",
@@ -378,8 +378,8 @@ export const questions = [
     "id": 11,
     "categoryId": "prime-numbers",
     "title": {
-      "en": "Question 11",
-      "ar": "السؤال 11"
+      "en": "Question 11: Prime Numbers Through N",
+      "ar": "السؤال 11: الأعداد الأولية حتى N"
     },
     "prompt": {
       "en": "A program that prints prime numbers from `1` to `N`, and then finds and prints the very first prime number coming right after `N`.",
@@ -406,8 +406,8 @@ export const questions = [
     "id": 12,
     "categoryId": "functions",
     "title": {
-      "en": "Question 12",
-      "ar": "السؤال 12"
+      "en": "Question 12: Test Divisibility by 2 and 3",
+      "ar": "السؤال 12: اختبار القسمة على 2 و3"
     },
     "prompt": {
       "en": "A program that generates a random number and passes it to a `Function` to verify if it is divisible by both `2` and `3` completely.",
@@ -432,8 +432,8 @@ export const questions = [
     "id": 13,
     "categoryId": "functions",
     "title": {
-      "en": "Question 13",
-      "ar": "السؤال 13"
+      "en": "Question 13: Find a List Minimum and Maximum",
+      "ar": "السؤال 13: إيجاد أصغر وأكبر قيمة في قائمة"
     },
     "prompt": {
       "en": "A `Function` that accepts a `List` structure as input, and prints the highest and the lowest numerical values residing inside it.",
@@ -458,8 +458,8 @@ export const questions = [
     "id": 14,
     "categoryId": "functions",
     "title": {
-      "en": "Question 14",
-      "ar": "السؤال 14"
+      "en": "Question 14: Prime and Perfect-Square Tests",
+      "ar": "السؤال 14: اختبار العدد الأولي والمربع الكامل"
     },
     "prompt": {
       "en": "Write a `Function` that examines a number to check whether it represents a `Prime` entity, and if it comprises a `Perfect Square`, printing boolean variables `True` or `False` for both.",
@@ -486,8 +486,8 @@ export const questions = [
     "id": 15,
     "categoryId": "conditions",
     "title": {
-      "en": "Question 15",
-      "ar": "السؤال 15"
+      "en": "Question 15: Classify Student Grades",
+      "ar": "السؤال 15: تصنيف درجات الطلبة"
     },
     "prompt": {
       "en": "Input `10` exam scores into a `List`, categorize them under university grading bounds, and print the total subset achieving exactly an `A` grade.",
@@ -514,8 +514,8 @@ export const questions = [
     "id": 16,
     "categoryId": "conditions",
     "title": {
-      "en": "Question 16",
-      "ar": "السؤال 16"
+      "en": "Question 16: Determine Even or Odd",
+      "ar": "السؤال 16: تحديد العدد الزوجي أو الفردي"
     },
     "prompt": {
       "en": "A short program asking for an integer `N`, subsequently verifying whether it stands as even or odd, rendering `Even` for matches and `Odd` for discrepancies.",
@@ -542,8 +542,8 @@ export const questions = [
     "id": 17,
     "categoryId": "loops",
     "title": {
-      "en": "Question 17",
-      "ar": "السؤال 17"
+      "en": "Question 17: Draw a Star Pyramid",
+      "ar": "السؤال 17: رسم هرم باستخدام النجوم"
     },
     "prompt": {
       "en": "Render a geometric pyramid layout utilizing trailing star indices `*` generated via an ascending looped iteration over consecutive screen lines.",
@@ -568,8 +568,8 @@ export const questions = [
     "id": 18,
     "categoryId": "sets",
     "title": {
-      "en": "Question 18",
-      "ar": "السؤال 18"
+      "en": "Question 18: Detect Duplicates with a Set",
+      "ar": "السؤال 18: اكتشاف التكرار باستخدام Set"
     },
     "prompt": {
       "en": "Input an array list series, map it subsequently onto a `Set` scope, print both collections, verify duplication events logging `True`/`False`, and explicitly output cleared properties.",
@@ -596,8 +596,8 @@ export const questions = [
     "id": 19,
     "categoryId": "sets",
     "title": {
-      "en": "Question 19",
-      "ar": "السؤال 19"
+      "en": "Question 19: Compare Two Sets",
+      "ar": "السؤال 19: مقارنة مجموعتين"
     },
     "prompt": {
       "en": "Populate two distinct `List` bounds manually, shift them to topological `Set` scopes rendering mathematical `Union`, `Intersection`, standard `Difference`, and ultimately confirm their symmetric integrity.",
@@ -624,8 +624,8 @@ export const questions = [
     "id": 20,
     "categoryId": "sets",
     "title": {
-      "en": "Question 20",
-      "ar": "السؤال 20"
+      "en": "Question 20: Set Similarities and Differences",
+      "ar": "السؤال 20: المشتركات والفروقات بين مجموعتين"
     },
     "prompt": {
       "en": "Generate two operational `Set` bounds iteratively fetched, extracting overlapping intersections, explicitly localized exclusive items, and uniquely unshared components respectively.",
@@ -652,8 +652,8 @@ export const questions = [
     "id": 21,
     "categoryId": "dictionary",
     "title": {
-      "en": "Question 21",
-      "ar": "السؤال 21"
+      "en": "Question 21: Store Number Powers in a Dictionary",
+      "ar": "السؤال 21: تخزين قوى العدد في Dictionary"
     },
     "prompt": {
       "en": "Nest a dictionary layer storing operational attributes computing trailing explicit geometric sequences mapping quadratic, cubic, and quadric polynomial equivalents internally mapping exponential shortcuts.",
@@ -680,8 +680,8 @@ export const questions = [
     "id": 22,
     "categoryId": "dictionary",
     "title": {
-      "en": "Question 22",
-      "ar": "السؤال 22"
+      "en": "Question 22: Store Power Pairs as Tuples",
+      "ar": "السؤال 22: تخزين أزواج القوى بصيغة Tuple"
     },
     "prompt": {
       "en": "Construct identical scalar dictionary configurations adopting static paired constraints utilizing strictly grouped `Tuple` variants instead of sub-dictionaries alongside expedited algorithmic scaling tools.",
@@ -708,8 +708,8 @@ export const questions = [
     "id": 23,
     "categoryId": "strings",
     "title": {
-      "en": "Question 23",
-      "ar": "السؤال 23"
+      "en": "Question 23: Count Vowels and Consonants",
+      "ar": "السؤال 23: عد حروف العلة والحروف الساكنة"
     },
     "prompt": {
       "en": "Prompt open plain texts, scanning tracking vocalic identities practically known explicitly as `vowels`, accompanying concurrent metric assessments concerning trailing solid consonants explicitly ignoring loose punctuation structures.",
@@ -736,8 +736,8 @@ export const questions = [
     "id": 24,
     "categoryId": "strings",
     "title": {
-      "en": "Question 24",
-      "ar": "السؤال 24"
+      "en": "Question 24: Convert Text Letter Case",
+      "ar": "السؤال 24: تحويل حالة أحرف النص"
     },
     "prompt": {
       "en": "Accept targeted text streams entered securely by arbitrary visitors, subsequently processing raw contents triggering full up-shift transformations creating standardized `upper case` sequences alongside miniaturized `lower case` formats explicitly.",
@@ -762,8 +762,8 @@ export const questions = [
     "id": 25,
     "categoryId": "numbers-problems",
     "title": {
-      "en": "Question 25",
-      "ar": "السؤال 25"
+      "en": "Question 25: Reverse the Digits of a Number",
+      "ar": "السؤال 25: عكس ترتيب أرقام العدد"
     },
     "prompt": {
       "en": "Reverse flip and actively re-arrange absolute whole number string sets procedurally overriding standard sequences (Example rendering specifically: converting source input `123` incrementally shifted into backward `321` arrangements dynamically).",

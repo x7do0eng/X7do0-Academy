@@ -1,6 +1,7 @@
 import { questions, categories } from '../../data/python-practice-questions.js';
 import { createProgressTracker } from './progress-tracker.js';
 import i18n from './i18n.js';
+import { escapeHtml, formatInlineCode } from './content-format.js';
 
 const tracker = createProgressTracker('python', questions);
 
@@ -18,11 +19,10 @@ const PracticeController = {
     initialized: false
   },
 
-  getLang() { return i18n.currentLang || 'en'; },
+  getLang() { return i18n.currentLang || 'ar'; },
 
   localize(value) {
-    const lang = this.getLang();
-    if (value && typeof value === 'object') return value[lang] || value.en || '';
+    if (value && typeof value === 'object') return value.ar || '';
     return value || '';
   },
 
@@ -58,39 +58,6 @@ const PracticeController = {
         this.renderQuestionDetails(this.state.ui.selectedQuestionId);
         this.renderCategories();
       });
-
-      window.addEventListener('languageChanged', () => {
-        this.renderQuestionList();
-        this.renderCategories();
-        this.renderProgress();
-        this.renderQuestionDetails(this.state.ui.selectedQuestionId);
-      });
-
-      const container = document.getElementById('practice-questions-container');
-      if (container) {
-        container.addEventListener('click', (e) => {
-          const card = e.target.closest('.practice-question-card');
-          if (card) {
-            const idSpan = card.querySelector('.question-number');
-            if (idSpan) {
-              const id = parseInt(idSpan.textContent.trim());
-              window.location.href = `./question.html?id=${id}`;
-            }
-          }
-        });
-        container.addEventListener('keydown', (e) => {
-          if (e.key === 'Enter') {
-            const card = e.target.closest('.practice-question-card');
-            if (card) {
-              const idSpan = card.querySelector('.question-number');
-              if (idSpan) {
-                const id = parseInt(idSpan.textContent.trim());
-                window.location.href = `./question.html?id=${id}`;
-              }
-            }
-          }
-        });
-      }
 
       const searchInput = document.getElementById('practice-search');
       if (searchInput) {
@@ -145,6 +112,7 @@ const PracticeController = {
     const allCount = this.state.data.questions.length;
     const allCompletedCount = tracker.getCompletedQuestions().length;
     const allBtn = document.createElement('button');
+    allBtn.type = 'button';
     allBtn.className = `category-btn w-full text-start px-4 py-2.5 rounded-lg text-sm font-bold transition-all ${!this.state.ui.selectedCategoryId ? 'active' : ''}`;
     allBtn.innerHTML = `${i18n.t('python.practice.all_questions')} <span class="opacity-50 font-mono text-xs">(${allCompletedCount}/${allCount})</span>`;
     allBtn.addEventListener('click', () => this.applyCategoryFilter(null));
@@ -158,6 +126,7 @@ const PracticeController = {
       else if (progress.completed > 0) indicatorClass = 'bg-blue-500';
 
       const btn = document.createElement('button');
+      btn.type = 'button';
       btn.className = `category-btn w-full text-start px-4 py-2.5 rounded-lg text-sm font-bold transition-all flex items-center justify-between ${this.state.ui.selectedCategoryId === cat.id ? 'active' : ''}`;
       btn.innerHTML = `
         <div class="flex items-center gap-2">
@@ -218,7 +187,9 @@ const PracticeController = {
                 <span class="label-sm">${i18n.t('python.practice.progress')}</span>
                 <span class="text-xs font-mono font-bold" style="color:var(--accent);">${percentage}%</span>
             </div>
-            <div class="progress-bar-bg">
+            <div class="progress-bar-bg" role="progressbar"
+                 aria-label="${i18n.t('python.practice.progress')}"
+                 aria-valuemin="0" aria-valuemax="100" aria-valuenow="${percentage}">
                 <div class="progress-bar-fill" style="width: ${barWidth}%"></div>
             </div>
             <div class="text-[11px] font-bold text-academic-secondary mt-2">${i18n.t('python.practice.completed_count', { completed, total })}</div>
@@ -311,12 +282,11 @@ const PracticeController = {
     const category = this.getCategoryById(q.categoryId);
     const categoryName = category ? this.localize(category.label) : i18n.t('python.practice.unknown_category');
 
-    const card = document.createElement('div');
+    const card = document.createElement('a');
     const isSelected = this.state.ui.selectedQuestionId === q.id;
     card.className = `practice-question-card p-5 flex flex-col gap-3`;
+    card.href = `./question.html?id=${q.id}`;
     if (isSelected) card.style.borderColor = 'var(--accent)';
-    card.setAttribute('role', 'button');
-    card.setAttribute('tabindex', '0');
     card.setAttribute('aria-label', `${i18n.t('python.question.label')}: ${this.localize(q.title)}`);
 
     const isCompleted = tracker.isQuestionCompleted(q.id);
@@ -329,7 +299,7 @@ const PracticeController = {
         </div>
         <span class="category-tag">${categoryName}</span>
       </div>
-      <h3 class="text-base text-academic-primary font-semibold leading-snug">${this.localize(q.title)}</h3>
+      <h3 class="text-base text-academic-primary font-semibold leading-snug">${escapeHtml(this.localize(q.title))}</h3>
     `;
     return card;
   },
@@ -372,15 +342,15 @@ const PracticeController = {
         <span class="text-[10px] font-mono text-academic-muted uppercase tracking-wider font-bold">#${q.id}</span>
         <span class="category-tag">${categoryName}</span>
       </div>
-      <h2 class="text-3xl font-bold text-academic-primary">${this.localize(q.title)}</h2>
+      <h2 class="text-3xl font-bold text-academic-primary">${escapeHtml(this.localize(q.title))}</h2>
       <div class="text-academic-secondary leading-relaxed text-base">
-        <p>${this.localize(q.prompt)}</p>
+        <p>${formatInlineCode(this.localize(q.prompt))}</p>
       </div>
       ${q.steps ? `
         <div class="section-surface">
           <div class="label mb-4">${i18n.t('python.question.steps')}</div>
           <ul class="list-decimal list-inside text-sm text-academic-primary space-y-2">
-            ${this.localize(q.steps).map(step => `<li>${step}</li>`).join('')}
+            ${this.localize(q.steps).map(step => `<li>${formatInlineCode(step)}</li>`).join('')}
           </ul>
         </div>
       ` : ''}
@@ -388,7 +358,7 @@ const PracticeController = {
         <div>
           <div class="label mb-4">${i18n.t('python.question.solution')}</div>
           <div class="code-surface overflow-hidden">
-              <pre class="p-5 overflow-x-auto text-sm font-mono leading-relaxed"><code>${q.code}</code></pre>
+              <pre class="p-5 overflow-x-auto text-sm font-mono leading-relaxed"><code>${escapeHtml(q.code)}</code></pre>
           </div>
         </div>
       ` : ''}
@@ -396,7 +366,7 @@ const PracticeController = {
         <div>
           <div class="label mb-4">${i18n.t('python.question.output')}</div>
           <div class="code-surface">
-              <pre class="p-4 overflow-x-auto text-sm font-mono"><code>${q.output}</code></pre>
+              <pre class="p-4 overflow-x-auto text-sm font-mono"><code>${escapeHtml(q.output)}</code></pre>
           </div>
         </div>
       ` : ''}

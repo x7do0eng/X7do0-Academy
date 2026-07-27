@@ -1,11 +1,9 @@
 const i18n = {
-    currentLang: 'en',
+    currentLang: 'ar',
     resources: {},
-    fallbackResources: {},
     cache: {},
     initialized: false,
     initPromise: null,
-    supportedLanguages: ['en', 'ar'],
     aliases: {
         // theme-manager flat keys → JSON dotted keys
         nav_home: 'nav.home',
@@ -68,17 +66,9 @@ const i18n = {
         if (this.initPromise) return this.initPromise;
 
         this.initPromise = (async () => {
-            this.currentLang = this.normalizeLang(localStorage.getItem('lang') || navigator.language.split('-')[0] || 'en');
-            await this.loadResources(this.currentLang);
+            localStorage.removeItem('lang');
+            await this.loadResources();
             this.applySettings();
-
-            // Listen for language toggle events from theme-manager
-            window.addEventListener('languagePreferenceChanged', (event) => {
-                if (event.detail?.lang) {
-                    this.setLanguage(event.detail.lang, { dispatch: true, source: 'theme-manager' });
-                }
-            });
-
             this.updateUI();
             this.initialized = true;
             return this;
@@ -87,35 +77,24 @@ const i18n = {
         return this.initPromise;
     },
 
-    normalizeLang(lang) {
-        return this.supportedLanguages.includes(lang) ? lang : 'en';
+    getResourceUrl() {
+        return new URL('../i18n/ar.json', import.meta.url);
     },
 
-    getResourceUrl(lang) {
-        return new URL(`../i18n/${lang}.json`, import.meta.url);
+    async fetchResources() {
+        if (this.cache.ar) return this.cache.ar;
+        const response = await fetch(this.getResourceUrl());
+        if (!response.ok) throw new Error('تعذر تحميل ملف اللغة العربية');
+        this.cache.ar = await response.json();
+        return this.cache.ar;
     },
 
-    async fetchResources(lang) {
-        if (this.cache[lang]) return this.cache[lang];
-        const response = await fetch(this.getResourceUrl(lang));
-        if (!response.ok) throw new Error(`Unable to load ${lang} resources`);
-        this.cache[lang] = await response.json();
-        return this.cache[lang];
-    },
-
-    async loadResources(lang = this.currentLang) {
-        const normalizedLang = this.normalizeLang(lang);
-
+    async loadResources() {
         try {
-            this.fallbackResources = await this.fetchResources('en');
-            this.resources = normalizedLang === 'en'
-                ? this.fallbackResources
-                : await this.fetchResources(normalizedLang);
-            this.currentLang = normalizedLang;
+            this.resources = await this.fetchResources();
         } catch (e) {
-            console.error('Failed to load language resources', e);
-            this.currentLang = 'en';
-            this.resources = this.fallbackResources || {};
+            console.error('تعذر تحميل نصوص الواجهة العربية', e);
+            this.resources = {};
         }
     },
 
@@ -141,12 +120,11 @@ const i18n = {
     },
 
     humanizeMissingKey(key) {
-        return this.resolveKey(key).split('.').pop().replaceAll('_', ' ');
+        return 'نص غير متاح';
     },
 
     t(key, params = {}) {
-        const value = this.resolveValue(this.resources, key)
-            ?? this.resolveValue(this.fallbackResources, key);
+        const value = this.resolveValue(this.resources, key);
 
         if (value === undefined || value === null) {
             console.warn(`[i18n] Missing translation: ${key}`);
@@ -156,24 +134,10 @@ const i18n = {
         return this.format(value, params);
     },
 
-    async setLanguage(lang, options = {}) {
-        const nextLang = this.normalizeLang(lang);
-        if (this.currentLang === nextLang && this.resources) return;
-        this.currentLang = nextLang;
-        localStorage.setItem('lang', nextLang);
-        this.applySettings();
-        await this.loadResources(nextLang);
-        this.updateUI();
-
-        if (options.dispatch !== false) {
-            window.dispatchEvent(new CustomEvent('languageChanged', { detail: { lang: nextLang, source: options.source || 'i18n' } }));
-        }
-    },
-
     applySettings() {
-        document.documentElement.lang = this.currentLang;
-        document.documentElement.dir = this.currentLang === 'ar' ? 'rtl' : 'ltr';
-        document.documentElement.classList.toggle('font-arabic', this.currentLang === 'ar');
+        document.documentElement.lang = 'ar';
+        document.documentElement.dir = 'rtl';
+        document.documentElement.classList.add('font-arabic');
     },
 
     updateUI() {
@@ -182,7 +146,7 @@ const i18n = {
             const translation = this.t(key);
             if (!translation) return;
 
-            if (el.dataset.i18nHtml === 'true' || translation.includes('<')) {
+            if (el.dataset.i18nHtml === 'true') {
                 el.innerHTML = translation;
             } else {
                 el.textContent = translation;
@@ -199,8 +163,9 @@ const i18n = {
 
         // Update document title using lookup table
         const page = document.body.dataset.page;
-        const title = this.t(`page_title.${page}`);
-        if (title) {
+        const titleKey = `page_title.${page}`;
+        const title = this.resolveValue(this.resources, titleKey);
+        if (typeof title === 'string' && title) {
             document.title = title;
         }
     }

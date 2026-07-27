@@ -1,36 +1,18 @@
 /**
- * Theme & Language Manager
- * Handles global state for Dark Mode (only).
- * Localization is delegated to i18n.js.
+ * Theme Manager
+ * Handles the color theme while the interface remains Arabic and RTL.
  */
 
 // Immediate Execution to prevent flash
 (function () {
     const savedTheme = localStorage.getItem('theme') || 'light';
-    const savedLang = localStorage.getItem('lang') || 'en';
+    localStorage.removeItem('lang');
 
     // Apply immediately to root element
     document.documentElement.setAttribute('data-theme', savedTheme);
-    document.documentElement.lang = savedLang;
-    document.documentElement.dir = savedLang === 'ar' ? 'rtl' : 'ltr';
-
-    // Apply font
-    if (savedLang === 'ar') {
-        document.documentElement.classList.add('font-arabic');
-    } else {
-        document.documentElement.classList.remove('font-arabic');
-    }
-
-    // Force icon sync if possible
-    window.addEventListener('DOMContentLoaded', () => {
-        const langToggle = document.getElementById('lang-toggle');
-        if (langToggle) {
-            const span = langToggle.querySelector('span');
-            if (span) {
-                span.textContent = savedLang === 'ar' ? 'EN' : 'عربي';
-            }
-        }
-    });
+    document.documentElement.lang = 'ar';
+    document.documentElement.dir = 'rtl';
+    document.documentElement.classList.add('font-arabic');
 })();
 
 class ThemeManager {
@@ -45,21 +27,15 @@ class ThemeManager {
 
         // Event Listeners
         this.themeToggle = document.getElementById('theme-toggle');
-        this.langToggle = document.getElementById('lang-toggle');
 
         if (this.themeToggle) {
+            this.updateIcons();
             this.themeToggle.addEventListener('click', () => {
                 const newTheme = this.html.dataset.theme === 'dark' ? 'light' : 'dark';
                 this.setTheme(newTheme);
             });
         }
 
-        if (this.langToggle) {
-            this.langToggle.addEventListener('click', () => {
-                const newLang = this.html.lang === 'ar' ? 'en' : 'ar';
-                this.setLang(newLang);
-            });
-        }
     }
 
     highlightActiveNav() {
@@ -85,26 +61,8 @@ class ThemeManager {
         }
     }
 
-    setLang(lang) {
-        this.html.lang = lang;
-        this.html.dir = lang === 'ar' ? 'rtl' : 'ltr';
-        localStorage.setItem('lang', lang);
-
-        if (lang === 'ar') {
-            this.html.classList.add('font-arabic');
-        } else {
-            this.html.classList.remove('font-arabic');
-        }
-
-        this.updateIcons();
-
-        // Notify i18n.js to update all text content
-        window.dispatchEvent(new CustomEvent('languagePreferenceChanged', { detail: { lang } }));
-    }
-
     updateIcons() {
         const theme = this.html.dataset.theme || 'light';
-        const lang = this.html.lang || 'en';
 
         if (this.themeToggle) {
             const icon = this.themeToggle.querySelector('i');
@@ -117,12 +75,6 @@ class ThemeManager {
             }
         }
 
-        if (this.langToggle) {
-            const span = this.langToggle.querySelector('span');
-            if (span) {
-                span.textContent = lang === 'ar' ? 'EN' : 'عربي';
-            }
-        }
     }
 }
 

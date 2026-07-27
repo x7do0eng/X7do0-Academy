@@ -2,7 +2,17 @@
     "nav": {
         "home": "الرئيسية",
         "courses": "الدورات",
-        "connect": "اتصل بنا"
+        "connect": "اتصل بنا",
+        "open_menu": "فتح قائمة التنقل",
+        "close_menu": "إغلاق قائمة التنقل",
+        "menu_label": "قائمة التنقل",
+        "quick_navigation": "التنقل السريع"
+    },
+    "controls": {
+        "theme_toggle": "تبديل مظهر الألوان"
+    },
+    "brand": {
+        "name_html": "أكاديمية <span class=\"text-academic-accent\">X7do0</span>"
     },
     "preview": {
         "title": "المعاينة"
@@ -27,6 +37,33 @@
             "link": "المزيد عني ←"
         }
     },
+    "dashboard": {
+        "hero_title": "تعلّم البرمجة بخطوات واضحة",
+        "hero_description": "دروس عملية، تمارين واقعية، وتقدّم مستمر من الأساسيات إلى مستوى أقوى.",
+        "start_learning": "ابدأ التعلّم",
+        "paths_title": "مسارات التعلّم",
+        "view_all": "عرض الكل",
+        "path_python": "بايثون",
+        "path_python_desc": "من الأساسيات إلى بناء الحلول",
+        "continue_path": "متابعة المسار",
+        "planned": "قريباً",
+        "path_undecided": "سيتم تحديد المسار لاحقاً",
+        "unavailable": "غير متاح حالياً",
+        "progress_title": "تقدّمك",
+        "details": "عرض التفاصيل",
+        "by_course": "حسب الدورة",
+        "overall_progress": "التقدّم العام",
+        "level": "المستوى الحالي",
+        "level_beginner": "مبتدئ",
+        "level_intermediate": "متوسط",
+        "level_advanced": "متقدم",
+        "keep_going": "استمر، أنت بالطريق الصحيح",
+        "completed": "التمارين المكتملة",
+        "remaining": "التمارين المتبقية",
+        "total": "إجمالي التمارين",
+        "exercise": "تمرين",
+        "more": "المزيد"
+    },
     "courses": {
         "title": "الدورات المتاحة",
         "desc": "اختر مسارك لتبدأ الرحلة. دوراتنا مصممة للعمق والاستدامة.",
@@ -49,12 +86,14 @@
             "desc": "ابنِ تطبيقات قوية باستخدام منصة .NET."
         }
     },
-    "page_title": {
-        "home": "أكاديمية X7do0",
-        "courses": "الدورات المتاحة | أكاديمية X7do0",
-        "python": "أساسيات بايثون | أكاديمية X7do0",
-        "connect": "تواصل معي | أكاديمية X7do0"
-    },
+  "page_title": {
+    "home": "أكاديمية X7do0",
+    "courses": "الدورات المتاحة | أكاديمية X7do0",
+    "python": "أساسيات بايثون | أكاديمية X7do0",
+    "python-practice": "أسئلة بايثون التدريبية | أكاديمية X7do0",
+    "python-practice-detail": "سؤال بايثون | أكاديمية X7do0",
+    "connect": "تواصل معي | أكاديمية X7do0"
+  },
     "connect": {
         "title": "تواصل معي",
         "desc": "أسئلة، تعاون، أو مجرد إلقاء تحية؟ تواصل معي عبر هذه المنصات.",

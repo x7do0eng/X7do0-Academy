@@ -12,6 +12,10 @@ body {
     overflow-x: hidden;
 }
 
+html.font-arabic body {
+    font-family: 'Noto Sans Arabic', var(--font-sans);
+}
+
 /* ── Label System ── */
 .label {
     font-size: 0.75rem;
@@ -275,8 +279,7 @@ section.academic-card:hover {
     right: 0;
 }
 
-#theme-toggle,
-#lang-toggle {
+#theme-toggle {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -308,6 +311,18 @@ code,
 .output {
     direction: ltr !important;
     unicode-bidi: embed;
+}
+
+.inline-code {
+    display: inline-block;
+    padding: 0.05em 0.35em;
+    border: 1px solid var(--code-border);
+    border-radius: 0.35rem;
+    background: var(--bg-code);
+    color: var(--code-text);
+    font-family: var(--font-mono);
+    font-size: 0.9em;
+    unicode-bidi: isolate;
 }
 
 /* ── Section spacing ── */
@@ -350,6 +365,8 @@ code,
 
 /* ── Mobile Navigation Drawer ── */
 #hamburger-btn {
+    min-width: 44px;
+    min-height: 44px;
     touch-action: manipulation;
 }
 
@@ -452,6 +469,23 @@ code,
 
 .nav-overlay.visible {
     opacity: 1;
+    pointer-events: auto;
+}
+
+.mobile-code-preview {
+    margin: 0.5rem 0 0;
+    padding: 0.85rem;
+    max-width: 100%;
+    overflow-x: auto;
+    white-space: pre;
+    word-break: normal;
+    border: 1px solid var(--code-border);
+    border-radius: 10px;
+    background: var(--bg-code);
+    color: var(--code-text);
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    line-height: 1.7;
 }
 
 body.drawer-open {
@@ -461,6 +495,10 @@ body.drawer-open {
 footer {
     background-color: var(--bg-footer);
     border-top: 1px solid var(--border-subtle);
+}
+
+.mobile-bottom-nav {
+    display: none;
 }
 
 @media (min-width: 768px) {
@@ -615,4 +653,119 @@ img {
 
 [data-theme="dark"] .text-glow {
     text-shadow: 0 0 40px rgba(109, 142, 255, 0.12);
+}
+
+@media (max-width: 767px) {
+    body {
+        padding-block-end: calc(78px + env(safe-area-inset-bottom)) !important;
+    }
+
+    .navbar-sticky {
+        padding-block: 0.75rem !important;
+    }
+
+    .course-context-header {
+        position: static;
+    }
+
+    #code-overlay {
+        display: none;
+    }
+
+    .practice-content {
+        order: 1;
+    }
+
+    .practice-categories {
+        order: 2;
+    }
+
+    #practice-categories-sidebar {
+        display: flex;
+        flex-direction: row;
+        gap: 0.5rem;
+        padding-block-end: 0.35rem;
+        overflow-x: auto;
+        scroll-snap-type: inline proximity;
+    }
+
+    #practice-categories-sidebar .category-btn {
+        width: auto;
+        min-width: max-content;
+        min-height: 44px;
+        scroll-snap-align: start;
+        border: 1px solid var(--border-subtle);
+        background: var(--bg-card);
+    }
+
+    #mobile-menu-toggle,
+    .category-disclosure,
+    #complete-btn {
+        min-height: 44px;
+    }
+
+    button[data-code],
+    #sidebar-content a {
+        min-height: 44px;
+    }
+
+    #sidebar-content a {
+        display: flex;
+        align-items: center;
+    }
+
+    .mobile-bottom-nav {
+        position: fixed;
+        z-index: 70;
+        inset-inline: 0;
+        bottom: 0;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        min-height: 68px;
+        padding: 0.45rem 0.5rem calc(0.45rem + env(safe-area-inset-bottom));
+        border-top: 1px solid var(--border);
+        background: var(--nav-bg);
+        -webkit-backdrop-filter: blur(16px);
+        backdrop-filter: blur(16px);
+        box-shadow: 0 -8px 24px rgba(23, 33, 58, 0.08);
+    }
+
+    .mobile-bottom-link {
+        display: flex;
+        min-height: 52px;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 0.2rem;
+        border-radius: 10px;
+        color: var(--text-muted);
+        font-size: 0.67rem;
+        font-weight: 700;
+    }
+
+    .mobile-bottom-link i {
+        font-size: 1rem;
+    }
+
+    .mobile-bottom-link.active {
+        color: var(--accent);
+        background: var(--accent-soft);
+    }
+}
+
+@media (max-width: 360px) {
+    .brand-academy {
+        display: none;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
 }

@@ -2,12 +2,6 @@ import i18n from './i18n.js';
 import { lessons } from '../../data/python-lessons.js';
 
 document.addEventListener('DOMContentLoaded', async () => {
-    window.addEventListener('languagePreferenceChanged', (event) => {
-        if (event.detail?.lang) {
-            i18n.setLanguage(event.detail.lang);
-        }
-    });
-
     await i18n.init();
     i18n.updateUI();
 
@@ -27,11 +21,15 @@ document.addEventListener('DOMContentLoaded', async () => {
         return color === 'blue' ? 'var(--accent)' : `var(--${color}-500, ${color})`;
     }
 
+    function codeAttribute(code) {
+        return encodeURIComponent(code || '');
+    }
+
     function renderLessonsGrid() {
         if (!mainContainer || !lessons) return;
 
         mainContainer.innerHTML = '';
-        const isAr = i18n.currentLang === 'ar';
+        const isAr = true;
 
         lessons.forEach((lesson, index) => {
             const card = document.createElement('section');
@@ -156,14 +154,14 @@ document.addEventListener('DOMContentLoaded', async () => {
             const spanClass = item.span ? `col-span-${item.span}` : '';
             const alignClass = item.align === 'center' ? 'text-center' : 'text-start';
             let classes = `${blockStyle} text-sm font-mono font-bold ${alignClass} ${spanClass}`;
-            return `<span class="${classes}" data-code='${item.code || ""}'>${itemLabel}</span>`;
+            return `<button type="button" class="${classes}" data-code="${codeAttribute(item.code)}">${itemLabel}</button>`;
         }
 
         if (item.type === 'compound') {
             const noteText = item.note && typeof item.note === 'object' ? item.note.text : (item.note || '');
             return `
                 <div class="space-y-2 w-full">
-                    <span class="${blockStyle} text-sm font-mono font-bold" data-code='${item.code || ""}'>${itemLabel}</span>
+                    <button type="button" class="${blockStyle} text-sm font-mono font-bold" data-code="${codeAttribute(item.code)}">${itemLabel}</button>
                     <div class="arabic-text text-xs italic px-2 border-s-2 p-2 rounded" style="color:var(--text-secondary);border-color:var(--accent);background:var(--accent-soft);">${noteText}</div>
                 </div>
             `;
@@ -188,15 +186,15 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
 
         if (item.type === 'pill' || item.type === 'pill-box') {
-            return `<span class="${blockStyle} flex-1 text-center text-xs font-mono font-bold" data-code='${item.code || ""}'>${itemLabel}</span>`;
+            return `<button type="button" class="${blockStyle} flex-1 text-center text-xs font-mono font-bold" data-code="${codeAttribute(item.code)}">${itemLabel}</button>`;
         }
 
         if (item.type === 'code-box') {
             const noteText = item.note && typeof item.note === 'object' ? item.note.text : (item.note || '');
-            return `<div class="code-surface p-3 group/code cursor-pointer" data-code='${item.code || ""}'>
+            return `<button type="button" class="code-surface keyword p-3 group/code cursor-pointer w-full text-start" data-code="${codeAttribute(item.code)}">
                 <span class="font-bold font-mono text-sm block">${itemLabel}</span>
-                ${noteText ? `<div class="arabic-text text-[10px]" style="color:var(--text-muted);margin-top:0.5rem;">${noteText}</div>` : ''}
-            </div>`;
+                ${noteText ? `<span class="arabic-text text-[10px] block" style="color:var(--text-muted);margin-top:0.5rem;">${noteText}</span>` : ''}
+            </button>`;
         }
 
         if (item.type === 'container') {
@@ -204,16 +202,16 @@ document.addEventListener('DOMContentLoaded', async () => {
                 ${items.map(sub => {
                 if (sub.type === 'divider') return `<div class="my-2 border-t" style="border-color:var(--border-soft);"></div>`;
                 const subLabel = isAr && sub.labelAr ? sub.labelAr : sub.label;
-                return `<span class="${blockStyle} text-sm font-mono font-bold mb-2" data-code='${sub.code || ""}'>${subLabel}</span>`;
+                return `<button type="button" class="${blockStyle} text-sm font-mono font-bold mb-2" data-code="${codeAttribute(sub.code)}">${subLabel}</button>`;
             }).join('')}
              </div>`;
         }
 
         if (item.type === 'logic-row') {
-            return `<div class="${blockStyle} flex justify-between items-center" data-code='${item.code || ""}'>
+            return `<button type="button" class="${blockStyle} flex justify-between items-center" data-code="${codeAttribute(item.code)}">
                 <span class="font-bold font-mono text-sm">${itemLabel}</span>
                 <span class="arabic-text text-[10px] px-2 py-1 rounded border shadow-sm" style="color:var(--text-secondary);background:var(--bg-interactive);border-color:var(--border-soft);">${item.arText}</span>
-            </div>`;
+            </button>`;
         }
 
         if (item.type === 'module-box') {
@@ -231,7 +229,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
 
         if (item.type === 'method') {
-            return `<span class="${blockStyle} text-xs font-mono font-bold" data-code='${item.code || ""}'>${itemLabel}</span>`;
+            return `<button type="button" class="${blockStyle} text-xs font-mono font-bold" data-code="${codeAttribute(item.code)}">${itemLabel}</button>`;
         }
 
         if (item.type === 'text') {
@@ -245,33 +243,72 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     const setupInteractions = () => {
-        document.querySelectorAll('.keyword').forEach(item => {
+        const isMobileInteraction = () => window.matchMedia('(max-width: 767px), (hover: none)').matches;
+        const readCode = item => decodeURIComponent(item.getAttribute('data-code') || '').replace(/\\n/g, '\n');
+        const showDesktopPreview = item => {
+            if (!overlay || !overlayContent || isMobileInteraction()) return;
+            const code = readCode(item);
+            if (!code) return;
+            overlayContent.textContent = code;
+            overlay.classList.remove('opacity-0', 'translate-x-10', 'pointer-events-none');
+            overlay.classList.add('opacity-100', 'translate-x-0');
+            clearTimeout(overlayTimeout);
+        };
+        const hideDesktopPreview = () => {
+            if (!overlay) return;
+            overlay.classList.add('opacity-0', 'translate-x-10', 'pointer-events-none');
+            overlay.classList.remove('opacity-100', 'translate-x-0');
+        };
+
+        document.querySelectorAll('[data-code]').forEach(item => {
             item.addEventListener('mouseenter', () => {
-                const code = item.getAttribute('data-code');
-                if (code) {
-                    overlayContent.textContent = code.replace(/\\n/g, '\n');
-                    overlay.classList.remove('opacity-0', 'translate-x-10', 'pointer-events-none');
-                    overlay.classList.add('opacity-100', 'translate-x-0');
-                    clearTimeout(overlayTimeout);
-                }
+                showDesktopPreview(item);
             });
 
             item.addEventListener('mouseleave', () => {
                 overlayTimeout = setTimeout(() => {
-                    overlay.classList.add('opacity-0', 'translate-x-10', 'pointer-events-none');
-                    overlay.classList.remove('opacity-100', 'translate-x-0');
+                    hideDesktopPreview();
                 }, 300);
             });
 
+            item.addEventListener('focus', () => showDesktopPreview(item));
+            item.addEventListener('blur', () => hideDesktopPreview());
+
             item.addEventListener('click', () => {
-                const code = item.getAttribute('data-code');
-                if (code) {
-                    overlayContent.textContent = code.replace(/\\n/g, '\n');
-                    overlay.classList.remove('opacity-0', 'translate-x-10', 'pointer-events-none');
-                    overlay.classList.add('opacity-100', 'translate-x-0');
+                if (!isMobileInteraction()) {
+                    showDesktopPreview(item);
+                    return;
                 }
+
+                const code = readCode(item);
+                if (!code) return;
+                const existingPreview = item.nextElementSibling?.classList.contains('mobile-code-preview')
+                    ? item.nextElementSibling
+                    : null;
+                document.querySelectorAll('.mobile-code-preview').forEach(preview => {
+                    if (preview !== existingPreview) preview.remove();
+                });
+
+                if (existingPreview) {
+                    existingPreview.remove();
+                    item.setAttribute('aria-expanded', 'false');
+                    return;
+                }
+
+                const preview = document.createElement('pre');
+                preview.className = 'mobile-code-preview';
+                preview.textContent = code;
+                item.insertAdjacentElement('afterend', preview);
+                item.setAttribute('aria-expanded', 'true');
             });
         });
+
+        if (!document.body.dataset.codeEscapeBound) {
+            document.body.dataset.codeEscapeBound = 'true';
+            document.addEventListener('keydown', event => {
+                if (event.key === 'Escape') hideDesktopPreview();
+            });
+        }
 
         document.querySelectorAll('.toggle-btn').forEach(btn => {
             btn.addEventListener('click', (e) => {
@@ -304,8 +341,4 @@ document.addEventListener('DOMContentLoaded', async () => {
     renderLessonsGrid();
     animateCards();
 
-    window.addEventListener('languageChanged', () => {
-        renderLessonsGrid();
-        animateCards();
-    });
 });

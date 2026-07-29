@@ -21,4 +21,3 @@ x = 123.45
 
 print(len(str(x))) 
 print(len(str(x)))
-

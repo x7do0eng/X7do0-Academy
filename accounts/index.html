@@ -1,191 +1,120 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl" class="scroll-smooth">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>تواصل معي | أكاديمية X7do0</title>
-    <!-- Tailwind CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <meta name="description" content="روابط التواصل الخاصة بأكاديمية X7do0.">
+    <link rel="canonical" href="https://x7do0eng.github.io/X7do0-Academy/accounts/index.html">
+    <meta property="og:title" content="تواصل معي | أكاديمية X7do0">
+    <meta property="og:description" content="روابط التواصل الخاصة بأكاديمية X7do0.">
+    <meta property="og:image" content="https://x7do0eng.github.io/X7do0-Academy/assets/preview.png">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="ar_IQ">
+    <meta property="og:site_name" content="أكاديمية X7do0">
+    <meta property="og:url" content="https://x7do0eng.github.io/X7do0-Academy/accounts/index.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" type="image/png" href="../assets/favicon.png">
+    <link rel="apple-touch-icon" href="../assets/favicon.png">
+    <meta name="theme-color" content="#2457d6">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- Fonts -->
-    <link
-        href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500&family=Noto+Sans+Arabic:wght@300;400;600;700;800&family=Outfit:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500&family=Noto+Sans+Arabic:wght@300;400;600;700;800&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/tailwind.css?v=97858818f8">
+    <link rel="stylesheet" href="../assets/css/variables.css?v=7967938615">
+    <link rel="stylesheet" href="../assets/css/styles.css?v=6092b13d4d">
 
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="../assets/css/variables.css">
-    <link rel="stylesheet" href="../assets/css/styles.css">
-
-    <!-- Tailwind Config -->
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Outfit', 'sans-serif'],
-                        mono: ['Fira Code', 'monospace'],
-                    },
-                    colors: {
-                        academic: {
-                            bg: 'var(--bg-primary)',
-                            card: 'var(--bg-card)',
-                            primary: 'var(--text-primary)',
-                            secondary: 'var(--text-secondary)',
-                            accent: 'var(--accent-primary)',
-                            muted: 'var(--text-muted)',
-                            surface: 'var(--bg-card-hover)',
-                        }
-                    }
-                }
-            }
-        }
-    </script>
-    <script src="../assets/js/theme-manager.js"></script>
-    <script type="module">
-        import i18n from '../assets/js/i18n.js';
-        i18n.init();
-    </script>
-    <script type="module" src="../assets/js/nav-drawer.js"></script>
+    <script src="../assets/js/theme-manager.js?v=3b7a594baf"></script>
 </head>
-
 <body class="antialiased min-h-screen flex flex-col"
     data-page="connect"
     data-nav-home="../index.html"
     data-nav-courses="../courses/index.html"
+    data-nav-lessons="../courses/python/lessons/index.html"
+    data-nav-practice="../courses/python/practice/index.html"
+    data-nav-project="../courses/python/project/index.html"
+    data-nav-about="../about/index.html"
     data-nav-connect="./index.html">
-
-    <!-- Background Elements -->
     <div class="fixed inset-0 z-[-1] bg-grid-pattern opacity-60 pointer-events-none"></div>
-
-    <!-- Header -->
     <nav class="w-full py-6 px-4 navbar-sticky">
-        <div class="max-w-4xl mx-auto flex justify-between items-center">
-            <div class="flex items-center gap-3">
-                <a href="../index.html" class="flex items-center gap-3 group">
-                    <div
-                        class="w-8 h-8 rounded bg-accent-solid flex items-center justify-center shadow-sm group-hover:scale-105 transition-transform">
-                        <i class="fas fa-graduation-cap text-sm"></i>
-                    </div>
-                    <span class="font-bold text-lg tracking-tight text-academic-primary transition-colors"
-                        data-i18n="brand.name_html" data-i18n-html="true">أكاديمية
-                        <span class="text-academic-accent">X7do0</span></span>
-                </a>
-            </div>
+        <div class="max-w-6xl mx-auto flex justify-between items-center">
+            <a href="../index.html" class="flex items-center gap-3 group">
+                <div class="w-8 h-8 rounded bg-accent-solid flex items-center justify-center shadow-sm group-hover:scale-105 transition-transform">
+                    <i class="fas fa-graduation-cap text-sm" aria-hidden="true"></i>
+                </div>
+                <span class="font-bold text-lg tracking-tight text-academic-primary transition-colors" data-i18n="brand.name_html" data-i18n-html="true">أكاديمية <span class="text-academic-accent">X7do0</span></span>
+            </a>
             <div class="hidden md:flex items-center gap-6 text-sm font-medium text-academic-secondary">
-                <a href="../index.html" class="nav-link hover:text-academic-accent transition-colors"
-                    data-i18n="nav.home" data-nav-link="home">الرئيسية</a>
-                <a href="../courses/index.html" class="nav-link hover:text-academic-accent transition-colors"
-                    data-i18n="nav.courses" data-nav-link="courses">الدورات</a>
-                <a href="./index.html" class="nav-link hover:text-academic-accent transition-colors"
-                    data-i18n="nav.connect" data-nav-link="connect">تواصل معي</a>
+                <a href="../index.html" class="nav-link hover:text-academic-accent transition-colors" data-i18n="nav.home" data-nav-link="home">الرئيسية</a>
+                <a href="../courses/index.html" class="nav-link hover:text-academic-accent transition-colors" data-i18n="nav.courses" data-nav-link="courses">الدورات</a>
+                <a href="../about/index.html" class="nav-link hover:text-academic-accent transition-colors" data-i18n="nav.about" data-nav-link="about">عن المشروع</a>
+                <a href="../accounts/index.html" class="nav-link hover:text-academic-accent transition-colors" data-i18n="nav.connect" data-nav-link="connect">تواصل معي</a>
                 <div class="nav-divider"></div>
             </div>
-
-            <!-- Toggles -->
-            <button id="theme-toggle"
-                class="flex items-center justify-center hover:text-academic-accent transition-colors rounded-lg hover:bg-[var(--bg-card-hover)]"
-                aria-label="تبديل مظهر الألوان" data-i18n-aria-label="controls.theme_toggle">
-                <i class="fas fa-moon"></i>
-            </button>
-
-            <!-- Hamburger (mobile only) -->
-            <button id="hamburger-btn"
-                class="md:hidden flex items-center justify-center rounded-lg hover:bg-[var(--bg-card-hover)] transition-colors text-academic-secondary hover:text-academic-accent"
-                aria-label="فتح قائمة التنقل" data-i18n-aria-label="nav.open_menu"
-                aria-expanded="false"
-                aria-controls="mobile-nav-drawer">
-                <i class="fas fa-bars text-lg"></i>
-            </button>
+            <div class="flex items-center gap-1">
+                <button id="theme-toggle" class="flex items-center justify-center text-academic-secondary hover:text-academic-accent transition-colors rounded-lg hover:bg-[var(--bg-card-hover)]" aria-label="تبديل مظهر الألوان" data-i18n-aria-label="controls.theme_toggle">
+                    <i class="fas fa-moon" aria-hidden="true"></i>
+                </button>
+                <button id="hamburger-btn" class="md:hidden flex items-center justify-center rounded-lg hover:bg-[var(--bg-card-hover)] transition-colors text-academic-secondary hover:text-academic-accent" aria-label="فتح قائمة التنقل" data-i18n-aria-label="nav.open_menu" aria-expanded="false" aria-controls="mobile-nav-drawer">
+                    <i class="fas fa-bars text-lg" aria-hidden="true"></i>
+                </button>
+            </div>
         </div>
     </nav>
-
-    <!-- Main Content -->
-    <main class="flex-grow flex flex-col items-center justify-center px-4 py-12 w-full max-w-4xl mx-auto">
-
-        <header class="mb-12 text-center">
-            <h1 class="text-3xl md:text-4xl font-bold text-academic-primary mb-4" data-i18n="connect_title">تواصل معي</h1>
-            <p class="text-academic-secondary max-w-md mx-auto" data-i18n="connect_desc">
-                للأسئلة أو التعاون، تواصل معي عبر هذه المنصات.
-            </p>
+<main class="flex-grow w-full max-w-5xl mx-auto px-4 py-12">
+        <header class="mb-9 text-center">
+            <h1 class="text-3xl md:text-4xl font-bold text-academic-primary mb-4">تواصل معي</h1>
+            <p class="text-academic-secondary max-w-2xl mx-auto leading-7">أنا مطوّر أكاديمية X7do0 ومصمم تجربتها التعليمية. أبني محتوى برمجياً عربياً عملياً، وأطوّر الموقع وواجهاته وأدوات التعلّم فيه.</p>
         </header>
 
-        <!-- Accounts Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-2xl">
+        <section class="academic-card card-accent-top p-6 md:p-8 mb-6">
+            <div class="flex items-center justify-between gap-4 mb-6">
+                <div>
+                    <span class="label">الملف المهني</span>
+                    <h2 class="text-2xl font-bold text-academic-primary mt-2">المشروع والكود المصدري</h2>
+                </div>
+                <i class="fab fa-github text-3xl text-academic-accent" aria-hidden="true"></i>
+            </div>
+            <div class="grid md:grid-cols-2 gap-4">
+                <a href="https://github.com/x7do0eng" target="_blank" rel="noopener noreferrer" class="academic-card p-4 flex items-center gap-4 hover:border-accent transition-colors">
+                    <i class="fab fa-github text-2xl" aria-hidden="true"></i>
+                    <span><strong class="block text-academic-primary">حساب GitHub</strong><small class="text-academic-secondary">المشاريع والمساهمات البرمجية</small></span>
+                </a>
+                <a href="https://github.com/x7do0eng/X7do0-Academy" target="_blank" rel="noopener noreferrer" class="academic-card p-4 flex items-center gap-4 hover:border-accent transition-colors">
+                    <i class="fas fa-code-branch text-xl text-academic-accent" aria-hidden="true"></i>
+                    <span><strong class="block text-academic-primary">شاهد الكود المصدري</strong><small class="text-academic-secondary">مستودع أكاديمية X7do0</small></span>
+                </a>
+                <div class="academic-card p-4 flex items-center gap-4 opacity-75" aria-label="رابط LinkedIn غير مضاف بعد">
+                    <i class="fab fa-linkedin text-2xl text-blue-600" aria-hidden="true"></i>
+                    <span><strong class="block text-academic-primary">LinkedIn</strong><small class="text-academic-secondary">يحتاج إضافة الرابط</small></span>
+                </div>
+                <div class="academic-card p-4 flex items-center gap-4 opacity-75" aria-label="البريد المهني غير مضاف بعد">
+                    <i class="fas fa-envelope text-xl text-academic-accent" aria-hidden="true"></i>
+                    <span><strong class="block text-academic-primary">البريد المهني</strong><small class="text-academic-secondary">يحتاج إضافة العنوان</small></span>
+                </div>
+            </div>
+        </section>
 
-            <!-- Box 1: Telegram (Personal) - Fixed RTL layout alignment with logical ms-auto -->
-            <a href="https://t.me/ctedev" target="_blank" rel="noopener noreferrer"
-                class="flex items-center gap-4 p-4 rounded-xl bg-academic-card border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md hover:border-blue-400 dark:hover:border-blue-500 transition-all group">
-                <div
-                    class="w-12 h-12 rounded-lg bg-academic-surface flex items-center justify-center text-blue-500 text-2xl group-hover:scale-110 transition-transform">
-                    <i class="fab fa-telegram-plane"></i>
-                </div>
-                <div class="text-start font-sans">
-                    <h3 class="font-bold text-academic-primary group-hover:text-blue-600 transition-colors">تيليغرام
-                    </h3>
-                    <p class="text-xs text-academic-secondary" data-i18n="desc_tg_personal">الحساب الشخصي</p>
-                </div>
-                <i class="fas fa-external-link-alt ms-auto text-academic-muted group-hover:text-blue-400"></i>
-            </a>
+        <section class="academic-card p-6 md:p-8">
+            <h2 class="text-xl font-bold text-academic-primary mb-5">منصات التواصل والمحتوى</h2>
+            <div class="grid sm:grid-cols-2 gap-4">
+                <a href="https://www.youtube.com/@X7do0eng" target="_blank" rel="noopener noreferrer" class="academic-card p-4 flex items-center gap-4 hover:border-accent transition-colors"><i class="fab fa-youtube text-2xl text-red-600"></i><span><strong class="block text-academic-primary">يوتيوب</strong><small class="text-academic-secondary">شروحات ودورات مرئية</small></span></a>
+                <a href="https://instagram.com/x7do0" target="_blank" rel="noopener noreferrer" class="academic-card p-4 flex items-center gap-4 hover:border-accent transition-colors"><i class="fab fa-instagram text-2xl text-pink-600"></i><span><strong class="block text-academic-primary">إنستغرام</strong><small class="text-academic-secondary">الحساب الشخصي</small></span></a>
+            </div>
+        </section>
 
-            <!-- Box 2: Telegram Channel -->
-            <a href="https://t.me/x7do0eng" target="_blank" rel="noopener noreferrer"
-                class="flex items-center gap-4 p-4 rounded-xl bg-academic-card border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md hover:border-blue-400 dark:hover:border-blue-500 transition-all group">
-                <div
-                    class="w-12 h-12 rounded-lg bg-academic-surface flex items-center justify-center text-blue-500 text-2xl group-hover:scale-110 transition-transform">
-                    <i class="fab fa-telegram"></i>
-                </div>
-                <div class="text-start font-sans">
-                    <h3 class="font-bold text-academic-primary group-hover:text-blue-600 transition-colors">قناة تيليغرام
-                        Channel</h3>
-                    <p class="text-xs text-academic-secondary" data-i18n="desc_tg_channel">القناة الرسمية</p>
-                </div>
-                <i class="fas fa-external-link-alt ms-auto text-academic-muted group-hover:text-blue-400"></i>
-            </a>
-
-            <!-- Box 3: YouTube -->
-            <a href="https://www.youtube.com/@X7do0eng" target="_blank" rel="noopener noreferrer"
-                class="flex items-center gap-4 p-4 rounded-xl bg-academic-card border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md hover:border-red-200 dark:hover:border-red-500 transition-all group">
-                <div
-                    class="w-12 h-12 rounded-lg bg-academic-surface flex items-center justify-center text-red-600 text-2xl group-hover:scale-110 transition-transform">
-                    <i class="fab fa-youtube"></i>
-                </div>
-                <div class="text-start font-sans">
-                    <h3 class="font-bold text-academic-primary group-hover:text-red-700 transition-colors">يوتيوب</h3>
-                    <p class="text-xs text-academic-secondary" data-i18n="desc_youtube">شروحات ودورات مرئية</p>
-                </div>
-                <i class="fas fa-external-link-alt ms-auto text-academic-muted group-hover:text-red-400"></i>
-            </a>
-
-            <!-- Box 4: Instagram -->
-            <a href="https://instagram.com/x7do0" target="_blank" rel="noopener noreferrer"
-                class="flex items-center gap-4 p-4 rounded-xl bg-academic-card border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md hover:border-pink-300 dark:hover:border-pink-500 transition-all group">
-                <div
-                    class="w-12 h-12 rounded-lg bg-academic-surface flex items-center justify-center text-pink-600 text-2xl group-hover:scale-110 transition-transform">
-                    <i class="fab fa-instagram"></i>
-                </div>
-                <div class="text-start font-sans">
-                    <h3 class="font-bold text-academic-primary group-hover:text-pink-600 transition-colors">إنستغرام
-                    </h3>
-                    <p class="text-xs text-academic-secondary" data-i18n="desc_instagram">الحساب الشخصي</p>
-                </div>
-                <i class="fas fa-external-link-alt ms-auto text-academic-muted group-hover:text-pink-400"></i>
-            </a>
-
-        </div>
-
+        <p class="text-center text-sm text-academic-secondary mt-7">يمكنك أيضاً قراءة <a href="../about/index.html" class="text-academic-accent font-bold">قصة المشروع وقراراته</a>.</p>
     </main>
-
-    <footer
-        class="py-8 text-center text-academic-muted text-xs font-mono tracking-widest uppercase mt-auto">
-        <!-- Copyright Removed -->
+    <footer class="mt-auto py-8 text-center relative z-10">
+        <div class="divider-gradient max-w-6xl mx-auto mb-8"></div>
+        <nav class="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 mb-4 text-xs font-bold text-academic-secondary" aria-label="روابط إضافية">
+            <a href="../about/index.html" class="hover:text-academic-accent transition-colors">عن المشروع</a>
+            <a href="../accounts/index.html" class="hover:text-academic-accent transition-colors">تواصل معي</a>
+            <a href="https://github.com/x7do0eng/X7do0-Academy" target="_blank" rel="noopener noreferrer" class="hover:text-academic-accent transition-colors">الكود المصدري</a>
+        </nav>
+        <p class="text-academic-secondary text-[10px] tracking-[0.3em] uppercase font-bold">X7do0eng</p>
     </footer>
-
-    <!-- Theme & Language Logic -->
-    <!-- Script moved to head for anti-flash -->
-
+    <script type="module" src="../assets/js/nav-drawer.js?v=90ebd95241"></script>
 </body>
-
 </html>

@@ -19,7 +19,7 @@
 #o The function should:           
     Multiply the two numbers        
     Return the result             
-                                    
+                                     
 #g Print the returned value        
 =========================           
 '''
